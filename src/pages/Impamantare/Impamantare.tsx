@@ -1,13 +1,6 @@
-import React, {
-  PropsWithChildren,
-  useState,
-  useEffect,
-  useContext,
-} from 'react'
+import React, { PropsWithChildren, useState, useContext } from 'react'
 import { ImpamantareView } from './Impamantare.view'
 import { dataProductModel } from '../../models/dataProduct.model'
-import { collection, FirestoreError, onSnapshot } from 'firebase/firestore'
-import { db } from '../../firebase/config'
 import { WishlistContext } from '../../context/Context.wishlist'
 import { Wishlist } from '../../models/WislistContext.model'
 import { ProduseContextModel } from '../../models/produseContext.model'
@@ -36,8 +29,8 @@ export const Impamantare: React.FC<PropsWithChildren> = (
     })
   }
 
-  let filter = impamantare.data.map((item) => item.categoria)
-  let individualstring = [...new Set(filter)]
+  const filter = impamantare.data.map((item) => item.categoria)
+  const individualstring = [...new Set(filter)]
 
   return (
     <ImpamantareView

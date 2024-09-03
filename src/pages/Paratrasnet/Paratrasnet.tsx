@@ -42,8 +42,8 @@ export const Paratrasnet: React.FC<PropsWithChildren<Props>> = (
     })
   }
 
-  let filter = props.products.data.map((item) => item.categoria)
-  let individualstring = [...new Set(filter)]
+  const filter = props.products.data.map((item) => item.categoria)
+  const individualstring = [...new Set(filter)]
 
   return (
     <ParatrasnetView

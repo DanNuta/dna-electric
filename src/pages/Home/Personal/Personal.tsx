@@ -25,7 +25,7 @@ export const Personal: React.FC<PropsWithChildren<PersonalModel>> = (
     setIsPendingState(true)
     const ref = collection(db, 'Personal')
 
-    let data: PersonalModel[] = []
+    const data: PersonalModel[] = []
     let elementOther: contact
 
     const onSubscribe = onSnapshot(ref, (snapshopt) => {

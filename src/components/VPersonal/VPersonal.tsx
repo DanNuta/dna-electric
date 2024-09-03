@@ -9,5 +9,5 @@ type Props = {
 export const VPersonal: React.FC<PropsWithChildren<Props>> = (
   props: PropsWithChildren<Props>
 ) => {
-  return <VPersonalView data={props.data}></VPersonalView>
+  return <VPersonalView data={props.data} />
 }

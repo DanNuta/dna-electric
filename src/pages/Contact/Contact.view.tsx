@@ -109,7 +109,7 @@ export const ContactViwe: React.FC<PropsWithChildren<Props>> = (
             </ul>
           </div>
 
-          <div className="bg_template"></div>
+          <div className="bg_template" />
         </Style.AboutUsElement>
       </Style.FormElement>
 
@@ -121,7 +121,7 @@ export const ContactViwe: React.FC<PropsWithChildren<Props>> = (
       </VButton>
 
       <Style.MapDiv>
-        <iframe src={data.map}></iframe>
+        <iframe src={data.map} />
       </Style.MapDiv>
     </Style.ContactDiv>
   )

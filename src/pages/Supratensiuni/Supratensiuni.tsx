@@ -42,8 +42,8 @@ export const Supratensiuni: React.FC<PropsWithChildren<Props>> = (
     })
   }
 
-  let filter = props.products.data.map((item) => item.categoria)
-  let individualstring = [...new Set(filter)]
+  const filter = props.products.data.map((item) => item.categoria)
+  const individualstring = [...new Set(filter)]
 
   console.log(props.products.pending, 'Peddndiff')
 

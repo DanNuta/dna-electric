@@ -18,7 +18,7 @@ import { Container } from '@mui/system'
 import { NavbarContextModel } from './models/NavbarContext.model'
 import { NotFount } from './pages/NotFound/NotFound.view'
 
-function App() {
+const App = () => {
   const { data } = useContext(NavbarContext) as NavbarContextModel
   const { impamantare, supratensiune, paratrasnet } = useContext(
     ProductsProvider

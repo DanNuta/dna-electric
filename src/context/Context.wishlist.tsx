@@ -16,11 +16,11 @@ export const WislistContext: React.FC<PropsWithChildren> = (
 
     wishListChecl
       ? setWishListState((prev) => {
-          let newArray = prev.filter((index) => index.id !== item.id)
+          const newArray = prev.filter((index) => index.id !== item.id)
           return newArray
         })
       : setWishListState((prev) => {
-          let newArray = [...prev, item]
+          const newArray = [...prev, item]
           return newArray
         })
   }

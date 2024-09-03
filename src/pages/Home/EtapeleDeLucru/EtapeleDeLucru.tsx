@@ -16,7 +16,7 @@ export const EtapeleDeLucru: React.FC<
     setIsPendingState(true)
     const ref = collection(db, 'EtapeleDeLucru')
 
-    let data: EtapeleDeLucruModel[] = []
+    const data: EtapeleDeLucruModel[] = []
 
     const onSubscribe = onSnapshot(ref, (snapshopt) => {
       snapshopt.docs.forEach(

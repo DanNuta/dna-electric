@@ -10,10 +10,5 @@ type Props = {
 export const MobileResponsive: React.FC<PropsWithChildren<Props>> = (
   props: PropsWithChildren<Props>
 ) => {
-  return (
-    <MobileResponsiveView
-      state={props.stateCkeck}
-      toggle={props.toggle}
-    ></MobileResponsiveView>
-  )
+  return <MobileResponsiveView state={props.stateCkeck} toggle={props.toggle} />
 }

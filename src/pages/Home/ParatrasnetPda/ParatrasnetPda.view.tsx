@@ -21,7 +21,7 @@ export const ParatrasnetPdaView: React.FC<PropsWithChildren<Props>> = (
           <div className="img_element">
             <img src={props.data.img} alt="" />
 
-            <div className="yollow"></div>
+            <div className="yollow" />
           </div>
         </Style.OverlayImg>
 
@@ -32,7 +32,7 @@ export const ParatrasnetPdaView: React.FC<PropsWithChildren<Props>> = (
             <div className="img_element">
               <img src={props.data.img} alt="" />
 
-              <div className="yollow"></div>
+              <div className="yollow" />
             </div>
           </Style.OverlayImg>
           <div>

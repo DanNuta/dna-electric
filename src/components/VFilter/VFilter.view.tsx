@@ -14,7 +14,7 @@ export const VFilterView: React.FC<PropsWithChildren<Props>> = (
   return (
     <Style.FilterElement display={props.display} onClick={props.onClick}>
       <Style.BoxCheckDiv>
-        <div className="active"></div>
+        <div className="active" />
       </Style.BoxCheckDiv>
 
       <p>{props.item}</p>

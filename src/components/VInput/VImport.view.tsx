@@ -34,7 +34,7 @@ export const VImputView: React.FC<PropsWithChildren<Props>> = (
           value={props.nameState.value}
           placeholder={props.placeholder}
           onChange={props.onChangeArea}
-        ></Style.TextareaTag>
+        />
       )}
       <p>{props.nameState.msj}</p>
     </Style.DivForm>

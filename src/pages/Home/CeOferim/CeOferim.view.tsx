@@ -19,7 +19,7 @@ export const CeOferimView: React.FC<PropsWithChildren<Props>> = (
       <Style.CeOferimDiv>
         {props.data &&
           props.data.map((item, index) => {
-            return <CeOferim key={index} item={item}></CeOferim>
+            return <CeOferim key={index} item={item} />
           })}
       </Style.CeOferimDiv>
     </Style.DivCeOferimElement>

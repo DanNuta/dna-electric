@@ -28,9 +28,7 @@ export const WishlistView: React.FC<PropsWithChildren<Props>> = (
 
       <div className="item_wishlist">
         {wishlistState.map((item: dataProductModel, index: number) => {
-          return (
-            <VWishListItem onClick={props.wishlist} data={item}></VWishListItem>
-          )
+          return <VWishListItem onClick={props.wishlist} data={item} />
         })}
       </div>
     </Style.WishListDiv>

@@ -55,7 +55,7 @@ export const SupratensiuniView: React.FC<PropsWithChildren<Props>> = (
                         //filterActive={props.filterActive}
                         item={item}
                         onClick={() => props.filterItemFn(item)}
-                      ></VFilter>
+                      />
                     )
                   })}
               </div>
@@ -79,7 +79,7 @@ export const SupratensiuniView: React.FC<PropsWithChildren<Props>> = (
                         //filterActive={props.filterActive}
                         item={item}
                         onClick={() => props.filterItemFn(item)}
-                      ></VFilter>
+                      />
                     )
                   })}
               </Styled.FilterDesktop>
@@ -95,7 +95,7 @@ export const SupratensiuniView: React.FC<PropsWithChildren<Props>> = (
                       localStorege="impamantare"
                       onClick={props.onClick}
                       data={item}
-                    ></VCardItem>
+                    />
                   </Grid>
                 )
               })
@@ -103,7 +103,7 @@ export const SupratensiuniView: React.FC<PropsWithChildren<Props>> = (
               props.dataFilter.map((item, index: number) => {
                 return (
                   <Grid lg={3} xs={6} item key={index}>
-                    <VCardItem onClick={props.onClick} data={item}></VCardItem>
+                    <VCardItem onClick={props.onClick} data={item} />
                   </Grid>
                 )
               })

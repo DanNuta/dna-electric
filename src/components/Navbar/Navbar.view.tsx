@@ -55,7 +55,7 @@ export const NavbarView: React.FC<PropsWithChildren<Props>> = (
           <Styled.NavLi>9:00 AM - 19:00 PM</Styled.NavLi>
 
           <Styled.NavLi onClick={props.onClick}>
-            <img src={wishList}></img>
+            <img src={wishList} />
           </Styled.NavLi>
         </Styled.NavbarUl>
       </Styled.NavbarNav>
@@ -124,14 +124,12 @@ export const NavbarView: React.FC<PropsWithChildren<Props>> = (
         </Styled.TabletNav>
       )}
 
-      {
-        <Styled.MobileNavDiv toggle={props.toggleState}>
-          <MobileResponsive
-            stateCkeck={props.toggleState}
-            toggle={props.toggle}
-          />
-        </Styled.MobileNavDiv>
-      }
+      <Styled.MobileNavDiv toggle={props.toggleState}>
+        <MobileResponsive
+          stateCkeck={props.toggleState}
+          toggle={props.toggle}
+        />
+      </Styled.MobileNavDiv>
 
       {checkProducts && (
         <WishlistEl wishListToggle={props.wishlist} onClick={props.onClick} />

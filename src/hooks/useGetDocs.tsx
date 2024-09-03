@@ -17,7 +17,7 @@ export function getDocsFirestore(idDB: string) {
     const onSubscribe = onSnapshot(
       ref,
       (snapshopt) => {
-        let dataSnapshot: dataProductModel[] = []
+        const dataSnapshot: dataProductModel[] = []
 
         snapshopt.docs.forEach((item, i) => {
           dataSnapshot.push({

@@ -19,7 +19,7 @@ export const CeOferim: React.FC<PropsWithChildren> = (
     const ref = collection(db, 'CeOferim')
 
     const onSubscribe = onSnapshot(ref, (snapshopt) => {
-      let dataBD: CeOferimModel[] = []
+      const dataBD: CeOferimModel[] = []
 
       snapshopt.docs.forEach(
         (item) => {

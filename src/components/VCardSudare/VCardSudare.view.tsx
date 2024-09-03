@@ -29,7 +29,7 @@ export const VCardSudareView: React.FC<PropsWithChildren<Props>> = (
 
           return (
             <Style.BoxSudare>
-              <img src={item.img[0]}></img>
+              <img src={item.img[0]} />
 
               <div className="hover_Element">
                 {/* <img src={item.img[0]}></img> */}
