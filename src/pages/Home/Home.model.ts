@@ -1,6 +1,5 @@
-import styled from "styled-components";
-
+import styled from 'styled-components'
 
 export const HomeDiv = styled.div`
-margin: 3rem 0 0 0;
+  margin: 3rem 0 0 0;
 `

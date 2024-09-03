@@ -1,4 +1,4 @@
 export type CeOferimModel = {
-    title?: string,
-    descrition?: string
+  title?: string
+  descrition?: string
 }

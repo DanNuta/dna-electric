@@ -1,7 +1,5 @@
 export type StateFormModel = {
-
-    msj: string,
-    value: string,
-    css: string;
-
+  msj: string
+  value: string
+  css: string
 }

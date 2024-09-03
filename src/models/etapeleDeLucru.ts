@@ -1,4 +1,4 @@
 export type EtapeleDeLucruModel = {
-    img?: string,
-    title?: string
+  img?: string
+  title?: string
 }

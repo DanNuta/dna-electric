@@ -1,11 +1,8 @@
+import { arrowLeft, facebookIcon } from './custom'
 
-    import {arrowLeft, facebookIcon} from "./custom";
+const Icons = {
+  arrowLeft,
+  facebookIcon,
+}
 
-
-    const Icons = {
-        arrowLeft,
-        facebookIcon
-    }
-
-    export type Icons = keyof typeof Icons;
-
+export type Icons = keyof typeof Icons

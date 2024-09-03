@@ -1,25 +1,22 @@
-import styled from "styled-components";
-import {theme} from "../../components/styles/Theme";
+import styled from 'styled-components'
+import { theme } from '../../components/styles/Theme'
 
 export const PersonalDiv = styled.div`
+  ${theme.breakpoints.up('lg')} {
+    width: 45%;
+  }
 
-${theme.breakpoints.up("lg")}{
-        width: 45%;
-    }
+  text-align: center;
 
-text-align: center;
-
-.h1{
+  .h1 {
     margin: 15px 0 10px 0;
+  }
 
-}
-
-p{
+  p {
     margin-bottom: 20px;
-}
+  }
 
-img{
+  img {
     width: 100%;
-}
-
+  }
 `

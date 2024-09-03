@@ -1,8 +1,5 @@
-import {createGlobalStyle} from "styled-components";
-import {theme} from "./Theme";
-
-
-
+import { createGlobalStyle } from 'styled-components'
+import { theme } from './Theme'
 
 export const GlobalStyles = createGlobalStyle`
 
@@ -38,7 +35,7 @@ h1{
     font-weight: 800;
     font-size: 22px;
 
-    ${theme.breakpoints.up("lg")}{
+    ${theme.breakpoints.up('lg')}{
         font-size: 45px;
     }
 }
