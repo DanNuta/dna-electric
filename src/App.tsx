@@ -17,6 +17,7 @@ import { Paratrasnet } from "./pages/Paratrasnet/Paratrasnet";
 import { ScrollToTop } from "./components/VScroll/VScroll";
 import { NavbarContextModel } from "./models/NavbarContext.model";
 import { NotFount } from "./pages/NotFound/NotFound.view";
+import { Article } from "./pages/Article/Article.view";
 
 const App = () => {
   const { data } = useContext(NavbarContext) as NavbarContextModel;
@@ -35,6 +36,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<HomeView />} />
             <Route path="/impamantare" element={<Impamantare />} />
+            <Route path="/articole" element={<Article />} />
             <Route
               path="/supratensiune"
               element={<Supratensiuni products={supratensiune} />}
