@@ -1,36 +1,35 @@
-import React, { PropsWithChildren, useState, useEffect } from 'react'
-import * as Style from './VCeOferim.model'
-import { CeOferimModel } from '../../models/ceOferim.model'
-import ReactDOM from 'react-dom'
-import { VButton } from '../VButton/VButton'
-import { LinkCOmponent } from '../VLink/VLink'
-import { theme, rootColor } from '../styles/Theme'
+import React, { PropsWithChildren, useState, useEffect } from "react";
+import ReactDOM from "react-dom";
+
+import * as Style from "./VCeOferim.model";
+import { CeOferimModel } from "../../models/ceOferim.model";
+import { LinkCOmponent } from "../VLink/VLink";
+import { rootColor } from "../styles/Theme";
 
 type Props = {
-  item: CeOferimModel
-  onClick: () => void
-  state: boolean
-}
+  item: CeOferimModel;
+  onClick: () => void;
+  state: boolean;
+};
 
-export const VCeOferimView: React.FC<PropsWithChildren<Props>> = (
-  props: PropsWithChildren<Props>
-) => {
-  const [scrollState, setScrollState] = useState(0)
+export const VCeOferimView: React.FC<PropsWithChildren<Props>> = (props) => {
+  const [scrollState, setScrollState] = useState(0);
 
   const handlerWindows = () => {
-    const position = window.pageYOffset
-    setScrollState(position)
-  }
-
-  {
-    props.state
-      ? (document.body.style.overflow = 'hidden')
-      : (document.body.style.overflow = 'scroll')
-  }
+    const position = window.pageYOffset;
+    setScrollState(position);
+  };
 
   useEffect(() => {
-    window.addEventListener('scroll', handlerWindows)
-  }, [])
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    props.state
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "scroll");
+  }, [props.state]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handlerWindows);
+  }, []);
 
   return (
     <Style.CardDiv onClick={props.onClick}>
@@ -48,18 +47,17 @@ export const VCeOferimView: React.FC<PropsWithChildren<Props>> = (
 
                 <LinkCOmponent
                   onClick={() => {
-                    document.body.style.overflow = 'scroll'
+                    document.body.style.overflow = "scroll";
                   }}
                   bg={rootColor.primary}
-                  link="/contacte"
-                >
+                  link="/contacte">
                   Contacteaza-ne
                 </LinkCOmponent>
               </Style.CeOferimInfo>
             </Style.CeOferim>,
-            document.getElementById('root') as HTMLDivElement
+            document.getElementById("root") as HTMLDivElement
           )}
       </Style.Model>
     </Style.CardDiv>
-  )
-}
+  );
+};

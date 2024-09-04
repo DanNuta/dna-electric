@@ -1,5 +1,6 @@
-import styled from 'styled-components'
-import { theme } from '../../../components/styles/Theme'
+import styled from "styled-components";
+
+import { theme } from "../../../components/styles/Theme";
 
 export const EtapeleDeLucruDiv = styled.div`
   margin-top: 46px;
@@ -7,7 +8,7 @@ export const EtapeleDeLucruDiv = styled.div`
   align-items: center;
   flex-direction: column;
 
-  ${theme.breakpoints.up('lg')} {
+  ${theme.breakpoints.up("lg")} {
   }
 
   .title {
@@ -15,7 +16,7 @@ export const EtapeleDeLucruDiv = styled.div`
     text-align: start;
     width: 100%;
   }
-`
+`;
 
 export const EtapeleLucruItemDiv = styled.div`
   display: flex;
@@ -25,7 +26,7 @@ export const EtapeleLucruItemDiv = styled.div`
   margin-bottom: 20px;
   width: 100%;
 
-  ${theme.breakpoints.up('lg')} {
+  ${theme.breakpoints.up("lg")} {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -35,7 +36,7 @@ export const EtapeleLucruItemDiv = styled.div`
 
   .title_img {
     text-align: center;
-    ${theme.breakpoints.up('lg')} {
+    ${theme.breakpoints.up("lg")} {
       width: 35%;
     }
   }
@@ -46,7 +47,7 @@ export const EtapeleLucruItemDiv = styled.div`
 
     background-color: red;
 
-    ${theme.breakpoints.up('lg')} {
+    ${theme.breakpoints.up("lg")} {
       width: 940px;
       height: 410px;
     }
@@ -56,4 +57,4 @@ export const EtapeleLucruItemDiv = styled.div`
       height: 100%;
     }
   }
-`
+`;

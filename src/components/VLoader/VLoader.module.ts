@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const LoaderDiv = styled.div`
   position: absolute;
@@ -21,7 +21,7 @@ export const LoaderDiv = styled.div`
       transform: rotate(360deg);
     }
   }
-`
+`;
 
 export const VLoaderElement = styled.div`
   position: absolute;
@@ -31,4 +31,4 @@ export const VLoaderElement = styled.div`
   left: 0;
   background-color: white;
   z-index: 999;
-`
+`;

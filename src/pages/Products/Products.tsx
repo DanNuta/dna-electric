@@ -2,51 +2,46 @@ import React, {
   PropsWithChildren,
   useState,
   useEffect,
-  useContext,
-} from 'react'
-import { ProductsView } from './Products.view'
-import { useParams } from 'react-router-dom'
-import {
-  collection,
-  FirestoreError,
-  onSnapshot,
-  getDoc,
-  doc,
-} from 'firebase/firestore'
-import { db } from '../../firebase/config'
-import { WishlistContext } from '../../context/Context.wishlist'
-import { dataProductModel } from '../../models/dataProduct.model'
-import { Wishlist } from '../../models/WislistContext.model'
+  useContext
+} from "react";
+import { useParams } from "react-router-dom";
+import { getDoc, doc } from "firebase/firestore";
+
+import { ProductsView } from "./Products.view";
+import { db } from "../../firebase/config";
+import { WishlistContext } from "../../context/Context.wishlist";
+import { dataProductModel } from "../../models/dataProduct.model";
+import { Wishlist } from "../../models/WislistContext.model";
 
 type Props = {
-  collection?: string
-  localStorege?: string
-  products?: dataProductModel[]
-  link?: string
-}
+  collection?: string;
+  localStorege?: string;
+  products?: dataProductModel[];
+  link?: string;
+};
 
 export const Products: React.FC<PropsWithChildren<Props>> = (
   props: PropsWithChildren<Props>
 ) => {
-  const { id } = useParams()
+  const { id } = useParams();
 
-  const { addWishList } = useContext(WishlistContext) as Wishlist
+  const { addWishList } = useContext(WishlistContext) as Wishlist;
 
   const [dateState, setDataState] = useState<dataProductModel>({
-    categoria: '',
+    categoria: "",
     description: [],
-    id: '',
+    id: "",
     img: [],
-    title: '',
-  })
+    title: ""
+  });
 
-  const [isPendingState, setIsPendingState] = useState<boolean | null>(null)
-  const [contorState, setContorState] = useState(0)
+  const [isPendingState, setIsPendingState] = useState<boolean | null>(null);
+  const [contorState, setContorState] = useState(0);
 
   useEffect(() => {
-    setIsPendingState(true)
+    setIsPendingState(true);
 
-    const ref = doc(db, `${props.collection}`, `${id}`)
+    const ref = doc(db, `${props.collection}`, `${id}`);
 
     getDoc(ref).then((document) => {
       setDataState({
@@ -54,46 +49,39 @@ export const Products: React.FC<PropsWithChildren<Props>> = (
         description: document.data()?.description,
         id: document.id,
         img: document.data()?.img,
-        title: document.data()?.title,
-      })
-      setIsPendingState(false)
-    })
-  }, [`${id}`])
+        title: document.data()?.title
+      });
+      setIsPendingState(false);
+    });
+  }, [`${id}`]);
 
   const nextImg = () => {
-    const lengthImg = dateState?.img?.length
+    const lengthImg = dateState?.img?.length;
 
     if (lengthImg) {
-      console.log(lengthImg - 1)
       if (contorState == lengthImg - 1) {
-        setContorState((prev) => {
-          return (prev = 0)
-        })
+        setContorState(0);
       } else {
         setContorState((prev) => {
-          return prev + 1
-        })
+          return prev + 1;
+        });
       }
     }
-  }
+  };
 
   const prevImg = () => {
-    const lengthImg = dateState?.img?.length
+    const lengthImg = dateState?.img?.length;
 
     if (lengthImg) {
-      console.log(lengthImg - 1)
-
       if (contorState == 0) {
-        setContorState((prev) => {
-          return (prev = lengthImg - 1)
-        })
+        setContorState(lengthImg - 1);
       } else {
         setContorState((prev) => {
-          return prev - 1
-        })
+          return prev - 1;
+        });
       }
     }
-  }
+  };
 
   return (
     <ProductsView
@@ -104,9 +92,8 @@ export const Products: React.FC<PropsWithChildren<Props>> = (
       data={dateState}
       isPending={isPendingState}
       products={props.products}
-      link={props.link}
-    >
+      link={props.link}>
       {props.children}
     </ProductsView>
-  )
-}
+  );
+};

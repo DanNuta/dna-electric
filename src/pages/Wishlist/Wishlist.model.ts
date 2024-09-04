@@ -1,9 +1,10 @@
-import styled from 'styled-components'
-import { theme } from '../../components/styles/Theme'
+import styled from "styled-components";
+
+import { theme } from "../../components/styles/Theme";
 
 type Props = {
-  active?: boolean
-}
+  active?: boolean;
+};
 
 export const WishListDiv = styled.div<Props>`
   background-color: rgba(39, 39, 39, 0.85);
@@ -14,10 +15,10 @@ export const WishListDiv = styled.div<Props>`
   z-index: 3;
 
   transform: ${(props) =>
-    props.active ? 'translateY(0%)' : 'translateY(-200%)'};
+    props.active ? "translateY(0%)" : "translateY(-200%)"};
   transition: 0.3s ease;
 
-  ${theme.breakpoints.up('lg')} {
+  ${theme.breakpoints.up("lg")} {
     width: 30%;
     right: 0;
     z-index: 1;
@@ -35,4 +36,4 @@ export const WishListDiv = styled.div<Props>`
     justify-content: space-between;
     align-items: center;
   }
-`
+`;

@@ -1,56 +1,55 @@
-import { CeOferimView } from './CeOferim.view'
+import { CeOferimView } from "./CeOferim.view";
 
-import React, { PropsWithChildren, useEffect, useState } from 'react'
-import { collection, FirestoreError, onSnapshot } from 'firebase/firestore'
-import { db } from '../../../firebase/config'
+import React, { PropsWithChildren, useEffect, useState } from "react";
+import { collection, FirestoreError, onSnapshot } from "firebase/firestore";
+import { db } from "../../../firebase/config";
 
-import { CeOferimModel } from '../../../models/ceOferim.model'
+import { CeOferimModel } from "../../../models/ceOferim.model";
 
 export const CeOferim: React.FC<PropsWithChildren> = (
   props: PropsWithChildren
 ) => {
-  const [dataState, setDataState] = useState<CeOferimModel[]>([])
+  const [dataState, setDataState] = useState<CeOferimModel[]>([]);
 
-  const [isPendingState, setIsPendingState] = useState<boolean>(false)
-  const [errorState, setErrorState] = useState<FirestoreError | null>(null)
+  const [isPendingState, setIsPendingState] = useState<boolean>(false);
+  const [errorState, setErrorState] = useState<FirestoreError | null>(null);
 
   useEffect(() => {
-    setIsPendingState(true)
-    const ref = collection(db, 'CeOferim')
+    setIsPendingState(true);
+    const ref = collection(db, "CeOferim");
 
     const onSubscribe = onSnapshot(ref, (snapshopt) => {
-      const dataBD: CeOferimModel[] = []
+      const dataBD: CeOferimModel[] = [];
 
       snapshopt.docs.forEach(
         (item) => {
           dataBD.push({
             title: item.data().title,
-            descrition: item.data().description,
-          })
+            descrition: item.data().description
+          });
 
-          setDataState(dataBD)
+          setDataState(dataBD);
 
-          setIsPendingState(false)
+          setIsPendingState(false);
         },
         (error: FirestoreError) => {
-          setErrorState(error)
-          setIsPendingState(false)
+          setErrorState(error);
+          setIsPendingState(false);
         }
-      )
-    })
+      );
+    });
 
     return () => {
-      onSubscribe()
-    }
-  }, [])
+      onSubscribe();
+    };
+  }, []);
 
   return (
     <CeOferimView
       data={dataState}
       error={errorState}
-      isPending={isPendingState}
-    >
+      isPending={isPendingState}>
       {props.children}
     </CeOferimView>
-  )
-}
+  );
+};

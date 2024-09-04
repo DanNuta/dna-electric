@@ -1,17 +1,16 @@
-import styled, { css } from 'styled-components'
-import { theme } from '../../components/styles/Theme'
+/* eslint-disable max-lines */
+import styled from "styled-components";
+import { theme } from "../../components/styles/Theme";
 
 type Props = {
-  display?: string
-  height?: string
-  alignItems?: string
-  justifyContent?: string
-  flexDirection?: string
-  center?: string
-  gap?: string
-}
-
-// style css
+  display?: string;
+  height?: string;
+  alignItems?: string;
+  justifyContent?: string;
+  flexDirection?: string;
+  center?: string;
+  gap?: string;
+};
 
 const FlexFn = (props: Props) => `
     ${props.display && `display: ${props.display}`};
@@ -20,24 +19,24 @@ const FlexFn = (props: Props) => `
     ${props.justifyContent && `justify-content: ${props.justifyContent}`};
     ${props.gap && `gap: ${props.gap}`};
 
-`
+`;
 
 export const ItemProductsDiv = styled.div`
   width: 90%;
   margin: 45px auto 0 auto;
 
-  ${theme.breakpoints.up('md')} {
+  ${theme.breakpoints.up("md")} {
     display: flex;
     gap: 1.5rem;
     width: 100%;
   }
 
   .title {
-    ${theme.breakpoints.up('md')} {
+    ${theme.breakpoints.up("md")} {
       display: none;
     }
   }
-`
+`;
 
 export const ImgSlider = styled.div`
   background-color: #f8f8f8;
@@ -49,7 +48,7 @@ export const ImgSlider = styled.div`
   justify-content: center;
   position: relative;
 
-  ${theme.breakpoints.up('md')} {
+  ${theme.breakpoints.up("md")} {
     width: 50%;
     height: 500px;
     margin: 0;
@@ -59,7 +58,7 @@ export const ImgSlider = styled.div`
     position: absolute;
     height: 100%;
 
-    ${theme.breakpoints.up('md')} {
+    ${theme.breakpoints.up("md")} {
       position: relative;
       height: 100%;
     }
@@ -71,10 +70,9 @@ export const ImgSlider = styled.div`
     height: 100%;
     width: 100%;
 
-    ${theme.breakpoints.up('md')} {
+    ${theme.breakpoints.up("md")} {
       position: absolute;
     }
-    //${FlexFn({ display: 'flex', alignItems: 'center' })}
 
     .prev {
     }
@@ -85,17 +83,17 @@ export const ImgSlider = styled.div`
       z-index: -10;
     }
   }
-`
+`;
 
 export const InfoDiv = styled.div`
-  ${theme.breakpoints.up('md')} {
+  ${theme.breakpoints.up("md")} {
     width: 50%;
   }
-`
+`;
 
 export const DescriereDiv = styled.div`
   .hr_element {
-    ${theme.breakpoints.up('lg')} {
+    ${theme.breakpoints.up("lg")} {
       margin: 30px 0;
     }
   }
@@ -103,22 +101,22 @@ export const DescriereDiv = styled.div`
   .title {
     display: none;
 
-    ${theme.breakpoints.up('md')} {
+    ${theme.breakpoints.up("md")} {
       display: block;
     }
   }
   p {
     margin: 10px 0 20px 0;
   }
-`
+`;
 
 export const ContactShoWishlistDiv = styled.div`
   margin-top: 20px;
-  ${FlexFn({ display: 'flex', flexDirection: 'column' })}
+  ${FlexFn({ display: "flex", flexDirection: "column" })}
 
   ul {
     .shop_class {
-      ${theme.breakpoints.up('lg')} {
+      ${theme.breakpoints.up("lg")} {
         display: flex;
         justify-content: center;
         gap: 10px;
@@ -126,9 +124,9 @@ export const ContactShoWishlistDiv = styled.div`
       }
     }
 
-    ${FlexFn({ display: 'flex', justifyContent: 'space-between' })}
+    ${FlexFn({ display: "flex", justifyContent: "space-between" })}
 
-    ${theme.breakpoints.up('lg')} {
+    ${theme.breakpoints.up("lg")} {
       justify-content: flex-start;
       gap: 50px;
     }
@@ -138,20 +136,20 @@ export const ContactShoWishlistDiv = styled.div`
       cursor: pointer;
       display: flex;
 
-      ${FlexFn({ display: 'flex', alignItems: 'center', gap: '5px' })}
+      ${FlexFn({ display: "flex", alignItems: "center", gap: "5px" })}
 
       img {
         width: 15px;
       }
     }
   }
-`
+`;
 
 export const ProduseSimilareDiv = styled.div`
   width: 90%;
   margin: 45px auto;
 
-  ${theme.breakpoints.up('lg')} {
+  ${theme.breakpoints.up("lg")} {
     margin-top: 115px;
     width: 100%;
   }
@@ -159,7 +157,7 @@ export const ProduseSimilareDiv = styled.div`
   .title {
     margin-bottom: 30px;
   }
-`
+`;
 
 export const CalitateDiv = styled.div`
   width: 90%;
@@ -168,7 +166,7 @@ export const CalitateDiv = styled.div`
   text-align: center;
   padding: 20px 16px;
 
-  ${theme.breakpoints.up('md')} {
+  ${theme.breakpoints.up("md")} {
     width: 100%;
     margin: 0;
   }
@@ -181,8 +179,8 @@ export const CalitateDiv = styled.div`
   h5 {
     margin-bottom: 10px;
   }
-`
+`;
 
 export const Button = styled.button<Props>`
   display: ${(props) => props.display};
-`
+`;

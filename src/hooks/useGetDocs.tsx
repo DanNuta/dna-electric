@@ -1,49 +1,48 @@
-import { db } from '../firebase/config'
-import { collection, FirestoreError, onSnapshot } from 'firebase/firestore'
-import { useState, useEffect } from 'react'
-import { dataProductModel } from '../models/dataProduct.model'
-import { useProductsModel } from '../models/products.model'
+import { useState, useEffect } from "react";
+import { collection, FirestoreError, onSnapshot } from "firebase/firestore";
+
+import { db } from "../firebase/config";
+
+import { dataProductModel } from "../models/dataProduct.model";
 
 export function getDocsFirestore(idDB: string) {
-  const [pending, setPending] = useState<boolean | null>(null)
-  const [error, setError] = useState<FirestoreError | null>(null)
-  const [data, setData] = useState<dataProductModel[]>([])
+  const [pending, setPending] = useState<boolean | null>(null);
+  const [error, setError] = useState<FirestoreError | null>(null);
+  const [data, setData] = useState<dataProductModel[]>([]);
 
   useEffect(() => {
-    const ref = collection(db, idDB)
+    const ref = collection(db, idDB);
 
-    setPending(true)
+    setPending(true);
 
     const onSubscribe = onSnapshot(
       ref,
       (snapshopt) => {
-        const dataSnapshot: dataProductModel[] = []
+        const dataSnapshot: dataProductModel[] = [];
 
-        snapshopt.docs.forEach((item, i) => {
+        snapshopt.docs.forEach((item) => {
           dataSnapshot.push({
             id: item.id,
             title: item.data().title,
             categoria: item.data().categoria,
             description: item.data().description,
-            img: item.data().img,
-          })
-        })
+            img: item.data().img
+          });
+        });
 
-        setData(dataSnapshot)
-        setPending((prev) => {
-          return (prev = false)
-        })
+        setData(dataSnapshot);
+        setPending(false);
       },
       (error) => {
-        setError(error)
-        setPending(false)
+        setError(error);
+        setPending(false);
       }
-    )
+    );
 
     return () => {
-      onSubscribe()
-    }
-  }, [idDB])
+      onSubscribe();
+    };
+  }, [idDB]);
 
-  return { data, error, pending }
+  return { data, error, pending };
 }

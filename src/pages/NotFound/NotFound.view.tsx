@@ -1,7 +1,6 @@
-import { Container } from '@mui/material'
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import * as Style from './NotFound.model'
+import React from "react";
+
+import * as Style from "./NotFound.model";
 
 export const NotFount: React.FC = () => {
   return (
@@ -20,5 +19,5 @@ export const NotFount: React.FC = () => {
 
       <p>Use the navigation above to go to the home page</p>
     </Style.ContainerElement>
-  )
-}
+  );
+};

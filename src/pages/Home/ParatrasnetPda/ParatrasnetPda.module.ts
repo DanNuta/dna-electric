@@ -1,11 +1,12 @@
-import styled, { StyleSheetManager } from 'styled-components'
-import { theme } from '../../../components/styles/Theme'
+import styled from "styled-components";
+
+import { theme } from "../../../components/styles/Theme";
 
 type Props = {
-  display?: string
-}
+  display?: string;
+};
 export const DivElement = styled.div`
-  ${theme.breakpoints.up('lg')} {
+  ${theme.breakpoints.up("lg")} {
   }
 
   .title {
@@ -15,10 +16,10 @@ export const DivElement = styled.div`
   .img_desc {
     margin: 20px 0 10px 0;
   }
-`
+`;
 
 export const FlexElementDiv = styled.div`
-  ${theme.breakpoints.up('lg')} {
+  ${theme.breakpoints.up("lg")} {
     display: flex;
     gap: 120px;
   }
@@ -26,11 +27,11 @@ export const FlexElementDiv = styled.div`
   .desc_title {
     margin-bottom: 20px;
   }
-`
+`;
 
 export const OverlayImg = styled.div<Props>`
   display: ${(props) => props.display};
-  ${theme.breakpoints.up('lg')} {
+  ${theme.breakpoints.up("lg")} {
     display: ${(props) => props.display};
   }
 
@@ -56,4 +57,4 @@ export const OverlayImg = styled.div<Props>`
       z-index: -1;
     }
   }
-`
+`;

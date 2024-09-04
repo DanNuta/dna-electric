@@ -1,19 +1,18 @@
-import React, { PropsWithChildren, useContext } from 'react'
-import { EtapeleDeLucruModel } from '../../../models/etapeleDeLucru'
-import * as Style from './EtapeleDeLucru.module'
-import { LinkCOmponent } from '../../../components/VLink/VLink'
-import { NavbarContext } from '../../../context/Context.navbar'
-import { NavbarType } from '../../../models/navbar.model'
-import { NavbarContextModel } from '../../../models/NavbarContext.model'
+import React, { PropsWithChildren, useContext } from "react";
+import { EtapeleDeLucruModel } from "../../../models/etapeleDeLucru";
+import * as Style from "./EtapeleDeLucru.module";
+import { LinkCOmponent } from "../../../components/VLink/VLink";
+import { NavbarContext } from "../../../context/Context.navbar";
+import { NavbarContextModel } from "../../../models/NavbarContext.model";
 
 type Props = {
-  data: EtapeleDeLucruModel[]
-}
+  data: EtapeleDeLucruModel[];
+};
 
 export const EtapeleDeLucruView: React.FC<PropsWithChildren<Props>> = (
-  props: PropsWithChildren<Props>
+  props
 ) => {
-  const { data } = useContext(NavbarContext) as NavbarContextModel
+  const { data } = useContext(NavbarContext) as NavbarContextModel;
   return (
     <Style.EtapeleDeLucruDiv>
       <h1 className="title">Etapele de lucru</h1>
@@ -36,5 +35,5 @@ export const EtapeleDeLucruView: React.FC<PropsWithChildren<Props>> = (
         Contacteaza-ne
       </LinkCOmponent>
     </Style.EtapeleDeLucruDiv>
-  )
-}
+  );
+};

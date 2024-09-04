@@ -1,13 +1,14 @@
-import { FirebaseError } from 'firebase/app'
-import React, { PropsWithChildren } from 'react'
-import { DespreNoiModel } from '../../../models/despreeNoi.model'
-import * as Style from './DespreNoi.module'
+import { FirebaseError } from "firebase/app";
+import React, { PropsWithChildren } from "react";
+
+import { DespreNoiModel } from "../../../models/despreeNoi.model";
+import * as Style from "./DespreNoi.module";
 
 type Props = {
-  data: DespreNoiModel
-  isPending?: boolean
-  error?: FirebaseError | null
-}
+  data: DespreNoiModel;
+  isPending?: boolean;
+  error?: FirebaseError | null;
+};
 
 export const DespreNoiView: React.FC<PropsWithChildren<Props>> = (
   props: PropsWithChildren<Props>
@@ -31,5 +32,5 @@ export const DespreNoiView: React.FC<PropsWithChildren<Props>> = (
         </div>
       </Style.DespreNoiDiv>
     </Style.SectionElement>
-  )
-}
+  );
+};

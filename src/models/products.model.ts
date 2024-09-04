@@ -1,8 +1,8 @@
-import { dataProductModel } from '../models/dataProduct.model'
-import { FirebaseError } from 'firebase/app'
+import { dataProductModel } from "../models/dataProduct.model";
+import { FirebaseError } from "firebase/app";
 
 export type useProductsModel = {
-  data: dataProductModel[]
-  error: FirebaseError | null
-  pending: boolean | null
-}
+  data: dataProductModel[];
+  error: FirebaseError | null;
+  pending: boolean | null;
+};

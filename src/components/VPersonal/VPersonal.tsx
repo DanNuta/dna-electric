@@ -1,13 +1,12 @@
-import React, { PropsWithChildren } from 'react'
-import { VPersonalView } from './VPersonal.view'
-import { PersonalModel } from '../../models/personal.model'
+import React, { PropsWithChildren } from "react";
+
+import { VPersonalView } from "./VPersonal.view";
+import { PersonalModel } from "../../models/personal.model";
 
 type Props = {
-  data: PersonalModel
-}
+  data: PersonalModel;
+};
 
-export const VPersonal: React.FC<PropsWithChildren<Props>> = (
-  props: PropsWithChildren<Props>
-) => {
-  return <VPersonalView data={props.data} />
-}
+export const VPersonal: React.FC<PropsWithChildren<Props>> = (props) => {
+  return <VPersonalView data={props.data} />;
+};

@@ -1,28 +1,28 @@
-import { HomeView } from './pages/Home/Home.view'
-import { Navbar } from './components/Navbar/Navbar'
-import { VFooter } from './components/VFooter/VFooter'
-import { GlobalStyles } from './components/styles/Global.module'
-import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom'
-import { Contact } from './pages/Contact/Contact'
-import { Impamantare } from './pages/Impamantare/Impamantare'
-import React, { useContext } from 'react'
-import { NavbarContext } from './context/Context.navbar'
-import { Products } from './pages/Products/Products'
-import { Supratensiuni } from './pages/Supratensiuni/Supratensiuni'
-import { ProductsProvider } from './context/Context.products'
-import { ProduseContextModel } from './models/produseContext.model'
-import { ProduseSimilare } from './pages/Products/produseSimilare/ProduseSimilare.view'
-import { Paratrasnet } from './pages/Paratrasnet/Paratrasnet'
-import { ScrollToTop } from './components/VScroll/VScroll'
-import { Container } from '@mui/system'
-import { NavbarContextModel } from './models/NavbarContext.model'
-import { NotFount } from './pages/NotFound/NotFound.view'
+import React from "react";
+
+import { HomeView } from "./pages/Home/Home.view";
+import { Navbar } from "./components/Navbar/Navbar";
+import { VFooter } from "./components/VFooter/VFooter";
+import { GlobalStyles } from "./components/styles/Global.module";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Contact } from "./pages/Contact/Contact";
+import { Impamantare } from "./pages/Impamantare/Impamantare";
+import { useContext } from "react";
+import { NavbarContext } from "./context/Context.navbar";
+import { Products } from "./pages/Products/Products";
+import { Supratensiuni } from "./pages/Supratensiuni/Supratensiuni";
+import { ProductsProvider } from "./context/Context.products";
+import { ProduseContextModel } from "./models/produseContext.model";
+import { Paratrasnet } from "./pages/Paratrasnet/Paratrasnet";
+import { ScrollToTop } from "./components/VScroll/VScroll";
+import { NavbarContextModel } from "./models/NavbarContext.model";
+import { NotFount } from "./pages/NotFound/NotFound.view";
 
 const App = () => {
-  const { data } = useContext(NavbarContext) as NavbarContextModel
+  const { data } = useContext(NavbarContext) as NavbarContextModel;
   const { impamantare, supratensiune, paratrasnet } = useContext(
     ProductsProvider
-  ) as ProduseContextModel
+  ) as ProduseContextModel;
 
   return (
     <BrowserRouter>
@@ -77,13 +77,11 @@ const App = () => {
             <Route path="*" element={<NotFount />} />
           </Routes>
 
-          {/* <HomeView/> */}
-
           <VFooter />
         </>
       </ScrollToTop>
     </BrowserRouter>
-  )
-}
+  );
+};
 
-export default App
+export default App;

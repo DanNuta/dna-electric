@@ -1,45 +1,46 @@
-import React, { PropsWithChildren, useEffect, useState } from 'react'
-import { EtapeleDeLucruView } from './EtapeleDeLucru.view'
-import { collection, FirestoreError, onSnapshot } from 'firebase/firestore'
-import { db } from '../../../firebase/config'
-import { EtapeleDeLucruModel } from '../../../models/etapeleDeLucru'
+import React, { PropsWithChildren, useEffect, useState } from "react";
+
+import { EtapeleDeLucruView } from "./EtapeleDeLucru.view";
+import { collection, FirestoreError, onSnapshot } from "firebase/firestore";
+import { db } from "../../../firebase/config";
+import { EtapeleDeLucruModel } from "../../../models/etapeleDeLucru";
 
 export const EtapeleDeLucru: React.FC<
   PropsWithChildren<EtapeleDeLucruModel>
 > = (props: PropsWithChildren<EtapeleDeLucruModel>) => {
-  const [dataState, setDataState] = useState<EtapeleDeLucruModel[]>([])
+  const [dataState, setDataState] = useState<EtapeleDeLucruModel[]>([]);
 
-  const [isPendingState, setIsPendingState] = useState<boolean>(false)
-  const [errorState, setErrorState] = useState<FirestoreError | null>(null)
+  const [, setIsPendingState] = useState<boolean>(false);
+  const [, setErrorState] = useState<FirestoreError | null>(null);
 
   useEffect(() => {
-    setIsPendingState(true)
-    const ref = collection(db, 'EtapeleDeLucru')
+    setIsPendingState(true);
+    const ref = collection(db, "EtapeleDeLucru");
 
-    const data: EtapeleDeLucruModel[] = []
+    const data: EtapeleDeLucruModel[] = [];
 
     const onSubscribe = onSnapshot(ref, (snapshopt) => {
       snapshopt.docs.forEach(
         (item) => {
-          data.push({ img: item.data().img, title: item.data().title })
+          data.push({ img: item.data().img, title: item.data().title });
 
-          setDataState(data)
+          setDataState(data);
 
-          setIsPendingState(false)
+          setIsPendingState(false);
         },
         (error: FirestoreError) => {
-          setErrorState(error)
-          setIsPendingState(false)
+          setErrorState(error);
+          setIsPendingState(false);
         }
-      )
-    })
+      );
+    });
 
     return () => {
-      onSubscribe()
-    }
-  }, [])
+      onSubscribe();
+    };
+  }, []);
 
   return (
     <EtapeleDeLucruView data={dataState}>{props.children}</EtapeleDeLucruView>
-  )
-}
+  );
+};

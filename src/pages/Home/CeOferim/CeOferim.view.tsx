@@ -1,14 +1,15 @@
-import { FirebaseError } from 'firebase/app'
-import React, { PropsWithChildren } from 'react'
-import { CeOferimModel } from '../../../models/ceOferim.model'
-import * as Style from './CeOferim.module'
-import { CeOferim } from '../../../components/VCardCeOferim/VCeOferim'
+import { FirebaseError } from "firebase/app";
+import React, { PropsWithChildren } from "react";
+
+import { CeOferimModel } from "../../../models/ceOferim.model";
+import * as Style from "./CeOferim.module";
+import { CeOferim } from "../../../components/VCardCeOferim/VCeOferim";
 
 type Props = {
-  data?: CeOferimModel[]
-  error: FirebaseError | null
-  isPending: boolean
-}
+  data?: CeOferimModel[];
+  error: FirebaseError | null;
+  isPending: boolean;
+};
 
 export const CeOferimView: React.FC<PropsWithChildren<Props>> = (
   props: PropsWithChildren<Props>
@@ -19,9 +20,9 @@ export const CeOferimView: React.FC<PropsWithChildren<Props>> = (
       <Style.CeOferimDiv>
         {props.data &&
           props.data.map((item, index) => {
-            return <CeOferim key={index} item={item} />
+            return <CeOferim key={index} item={item} />;
           })}
       </Style.CeOferimDiv>
     </Style.DivCeOferimElement>
-  )
-}
+  );
+};

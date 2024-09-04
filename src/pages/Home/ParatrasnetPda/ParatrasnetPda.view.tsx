@@ -1,13 +1,14 @@
-import { FirebaseError } from 'firebase/app'
-import React, { PropsWithChildren, useEffect, useState } from 'react'
-import { ParatrasnetModel } from '../../../models/paratrasnet.model'
-import * as Style from './ParatrasnetPda.module'
+import { FirebaseError } from "firebase/app";
+import React, { PropsWithChildren } from "react";
+
+import { ParatrasnetModel } from "../../../models/paratrasnet.model";
+import * as Style from "./ParatrasnetPda.module";
 
 type Props = {
-  data: ParatrasnetModel
-  error: FirebaseError | null
-  isPending: boolean
-}
+  data: ParatrasnetModel;
+  error: FirebaseError | null;
+  isPending: boolean;
+};
 
 export const ParatrasnetPdaView: React.FC<PropsWithChildren<Props>> = (
   props: PropsWithChildren<Props>
@@ -42,5 +43,5 @@ export const ParatrasnetPdaView: React.FC<PropsWithChildren<Props>> = (
         </div>
       </Style.FlexElementDiv>
     </Style.DivElement>
-  )
-}
+  );
+};

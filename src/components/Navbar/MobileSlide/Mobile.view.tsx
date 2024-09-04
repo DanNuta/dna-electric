@@ -1,24 +1,23 @@
-import * as Style from '../MobileSlide/Mobile.module'
-import React, { PropsWithChildren, useContext } from 'react'
-import Cancel from '../../../icons/card_product_icon/cancel_mobile.svg'
-import { VButton } from '../../VButton/VButton'
-import facebook from '../../../icons/social_media_icon/facebook.svg'
-import youtube from '../../../icons/social_media_icon/youtube.svg'
-import wishlist from '../../../icons/social_media_icon/wish_list.svg'
-import { NavbarContext } from '../../../context/Context.navbar'
-import { Link } from 'react-router-dom'
-import { NavbarType } from '../../../models/navbar.model'
-import { NavbarContextModel } from '../../../models/NavbarContext.model'
+import React, { PropsWithChildren, useContext } from "react";
+import { Link } from "react-router-dom";
+
+import * as Style from "../MobileSlide/Mobile.module";
+import Cancel from "../../../icons/card_product_icon/cancel_mobile.svg";
+import { VButton } from "../../VButton/VButton";
+import facebook from "../../../icons/social_media_icon/facebook.svg";
+import youtube from "../../../icons/social_media_icon/youtube.svg";
+import { NavbarContext } from "../../../context/Context.navbar";
+import { NavbarContextModel } from "../../../models/NavbarContext.model";
 
 type Props = {
-  toggle: () => void
-  state: boolean
-}
+  toggle: () => void;
+  state: boolean;
+};
 
 export const MobileResponsiveView: React.FC<PropsWithChildren<Props>> = (
-  props: PropsWithChildren<Props>
+  props
 ) => {
-  const { data } = useContext(NavbarContext) as NavbarContextModel
+  const { data } = useContext(NavbarContext) as NavbarContextModel;
 
   return (
     <Style.MobileStyled state={props.state}>
@@ -71,5 +70,5 @@ export const MobileResponsiveView: React.FC<PropsWithChildren<Props>> = (
         </Style.MobileLiElement>
       </Style.MolobleUl>
     </Style.MobileStyled>
-  )
-}
+  );
+};

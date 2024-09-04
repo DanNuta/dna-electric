@@ -1,14 +1,14 @@
-import React, { PropsWithChildren } from 'react'
-import { Link } from 'react-router-dom'
-import * as Style from './VLink.model'
+import React, { PropsWithChildren } from "react";
+
+import * as Style from "./VLink.model";
 
 type Props = {
-  link: string
-  bg?: string
-  color?: string
-  onClick?: () => void
-  width?: string
-}
+  link: string;
+  bg?: string;
+  color?: string;
+  onClick?: () => void;
+  width?: string;
+};
 export const LinkView: React.FC<PropsWithChildren<Props>> = (
   props: PropsWithChildren<Props>
 ) => {
@@ -18,9 +18,8 @@ export const LinkView: React.FC<PropsWithChildren<Props>> = (
       onClick={props.onClick}
       color={props.color}
       bg={props.bg}
-      to={props.link}
-    >
+      to={props.link}>
       {props.children}
     </Style.LinkElement>
-  )
-}
+  );
+};

@@ -1,27 +1,26 @@
-import React, { PropsWithChildren, useEffect, useState } from 'react'
-import { collection, FirestoreError, onSnapshot } from 'firebase/firestore'
-import { db } from '../../../firebase/config'
-import { fiiInSiguranta } from '../../../models/fiiInSiguranta.model'
-import { FiiInSigurantaView } from './FiiInSiguranta.view'
+import React, { PropsWithChildren, useEffect, useState } from "react";
+import { collection, FirestoreError, onSnapshot } from "firebase/firestore";
 
-export const FiiInSiguranta: React.FC<PropsWithChildren> = (
-  props: PropsWithChildren
-) => {
+import { db } from "../../../firebase/config";
+import { fiiInSiguranta } from "../../../models/fiiInSiguranta.model";
+import { FiiInSigurantaView } from "./FiiInSiguranta.view";
+
+export const FiiInSiguranta: React.FC<PropsWithChildren> = (props) => {
   const [dataState, setDataState] = useState<fiiInSiguranta>({
-    title: '',
-    box_yellow: '',
-    description_bottom_img: '',
-    description_bottom_title: '',
-    img_dreapta: '',
-    img_stanga: '',
-  })
+    title: "",
+    box_yellow: "",
+    description_bottom_img: "",
+    description_bottom_title: "",
+    img_dreapta: "",
+    img_stanga: ""
+  });
 
-  const [isPendingState, setIsPendingState] = useState<boolean>(false)
-  const [errorState, setErrorState] = useState<FirestoreError | null>(null)
+  const [isPendingState, setIsPendingState] = useState<boolean>(false);
+  const [errorState, setErrorState] = useState<FirestoreError | null>(null);
 
   useEffect(() => {
-    setIsPendingState(true)
-    const ref = collection(db, 'FiiInSiguranta')
+    setIsPendingState(true);
+    const ref = collection(db, "FiiInSiguranta");
 
     const onSubscribe = onSnapshot(ref, (snapshopt) => {
       snapshopt.docs.forEach(
@@ -32,30 +31,29 @@ export const FiiInSiguranta: React.FC<PropsWithChildren> = (
             description_bottom_img: item.data().description_bottom_img,
             description_bottom_title: item.data().description_bottom_title,
             img_dreapta: item.data().img_dreapta,
-            img_stanga: item.data().img_stanga,
-          })
+            img_stanga: item.data().img_stanga
+          });
 
-          setIsPendingState(false)
+          setIsPendingState(false);
         },
         (error: FirestoreError) => {
-          setErrorState(error)
-          setIsPendingState(false)
+          setErrorState(error);
+          setIsPendingState(false);
         }
-      )
-    })
+      );
+    });
 
     return () => {
-      onSubscribe()
-    }
-  }, [])
+      onSubscribe();
+    };
+  }, []);
 
   return (
     <FiiInSigurantaView
       data={dataState}
       isPending={isPendingState}
-      error={errorState}
-    >
+      error={errorState}>
       {props.children}
     </FiiInSigurantaView>
-  )
-}
+  );
+};

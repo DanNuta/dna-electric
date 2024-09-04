@@ -1,38 +1,36 @@
-import React, { PropsWithChildren, useContext } from 'react'
-import { NavbarType } from '../../models/navbar.model'
-import { facebookIcon } from '../../icons/custom'
-import Logo from '../../icons/logo/logo.svg'
-import Youtube from '../../icons/social_media_icon/youtube.svg'
-import * as Styled from './Navbar.module'
-import hanburgher from '../../icons/hamburger/menu.svg'
-import { VButton } from '../../components/VButton/VButton'
-import wishList from '../../icons/card_product_icon/wish_list.svg'
-import { MobileResponsive } from '../Navbar/MobileSlide/Mobile'
-import { WishlistEl } from '../../pages/Wishlist/Wishlist'
-import { WishlistContext } from '../../context/Context.wishlist'
-import { Wishlist } from '../../models/WislistContext.model'
-import { Link } from 'react-router-dom'
-import navbar from '../../icons/hamburger/menu.svg'
-import { Container } from '@mui/system'
-import { theme } from '../styles/Theme'
-import wishlist from '../../icons/hover_icon/wishlist_nav.svg'
-import { NavbarContext } from '../../context/Context.navbar'
-import { NavbarContextModel } from '../../models/NavbarContext.model'
+/* eslint max-lines: off */
+import React, { PropsWithChildren, useContext } from "react";
+import { Link } from "react-router-dom";
+
+import { facebookIcon } from "../../icons/custom";
+import Logo from "../../icons/logo/logo.svg";
+import Youtube from "../../icons/social_media_icon/youtube.svg";
+import * as Styled from "./Navbar.module";
+import hanburgher from "../../icons/hamburger/menu.svg";
+import { VButton } from "../../components/VButton/VButton";
+import wishList from "../../icons/card_product_icon/wish_list.svg";
+import { MobileResponsive } from "../Navbar/MobileSlide/Mobile";
+import { WishlistEl } from "../../pages/Wishlist/Wishlist";
+import { WishlistContext } from "../../context/Context.wishlist";
+import { Wishlist } from "../../models/WislistContext.model";
+import wishlist from "../../icons/hover_icon/wishlist_nav.svg";
+import { NavbarContext } from "../../context/Context.navbar";
+import { NavbarContextModel } from "../../models/NavbarContext.model";
 
 type Props = {
-  toggleState: boolean
-  toggle: () => void
-  bg: string
-  onClick: () => void
-  wishlist: boolean
-}
+  toggleState: boolean;
+  toggle: () => void;
+  bg: string;
+  onClick: () => void;
+  wishlist: boolean;
+};
 
 export const NavbarView: React.FC<PropsWithChildren<Props>> = (
   props: PropsWithChildren<Props>
 ) => {
-  const { data, isPending } = useContext(NavbarContext) as NavbarContextModel
-  const { wishlistState } = useContext(WishlistContext) as Wishlist
-  const checkProducts = wishlistState.length == 0 ? false : true
+  const { data, isPending } = useContext(NavbarContext) as NavbarContextModel;
+  const { wishlistState } = useContext(WishlistContext) as Wishlist;
+  const checkProducts = wishlistState.length == 0 ? false : true;
 
   return (
     <>
@@ -66,8 +64,8 @@ export const NavbarView: React.FC<PropsWithChildren<Props>> = (
             <Styled.TabletUl gap="1rem">
               <li>
                 <Link to="/">
-                  <img src={Logo} alt="wish_list" />{' '}
-                </Link>{' '}
+                  <img src={Logo} alt="wish_list" />{" "}
+                </Link>{" "}
               </li>
               <li>9:00 - 19:00</li>
             </Styled.TabletUl>
@@ -115,10 +113,6 @@ export const NavbarView: React.FC<PropsWithChildren<Props>> = (
                   <img src={wishList} alt="wishlist" />
                 </a>
               </li>
-
-              {/* https://www.paratrasnet.shop/ */}
-
-              {/* <a href="https://www.w3schools.com" target="_blank">Visit W3Schools</a> */}
             </Styled.TabletUl>
           </Styled.MaxWidthTablet>
         </Styled.TabletNav>
@@ -135,5 +129,5 @@ export const NavbarView: React.FC<PropsWithChildren<Props>> = (
         <WishlistEl wishListToggle={props.wishlist} onClick={props.onClick} />
       )}
     </>
-  )
-}
+  );
+};

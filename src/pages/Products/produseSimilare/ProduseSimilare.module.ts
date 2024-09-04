@@ -1,5 +1,6 @@
-import styled from 'styled-components'
-import { theme, rootColor } from '../../../components/styles/Theme'
+import styled from "styled-components";
+
+import { theme, rootColor } from "../../../components/styles/Theme";
 
 export const ProduseSimilareDiv = styled.div`
   background: #f8f8f8;
@@ -8,9 +9,10 @@ export const ProduseSimilareDiv = styled.div`
   .hoverElement {
     display: none;
     transition: 0.5s ease;
+    cursor: pointer;
   }
 
-  ${theme.breakpoints.up('lg')} {
+  ${theme.breakpoints.up("lg")} {
     position: relative;
 
     &:hover .hoverElement {
@@ -32,13 +34,13 @@ export const ProduseSimilareDiv = styled.div`
     justify-content: center;
     height: 115px;
 
-    ${theme.breakpoints.up('lg')} {
+    ${theme.breakpoints.up("lg")} {
       height: 340px;
     }
     img {
       height: 100%;
 
-      ${theme.breakpoints.up('lg')} {
+      ${theme.breakpoints.up("lg")} {
         object-fit: cover;
         max-width: 340px;
       }
@@ -49,9 +51,9 @@ export const ProduseSimilareDiv = styled.div`
     padding: 8px;
     height: 70px;
 
-    ${theme.breakpoints.up('lg')} {
+    ${theme.breakpoints.up("lg")} {
       height: 110px;
       padding: 20px;
     }
   }
-`
+`;

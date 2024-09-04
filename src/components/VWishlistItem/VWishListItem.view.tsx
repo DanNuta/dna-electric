@@ -1,14 +1,16 @@
-import React, { PropsWithChildren } from 'react'
-import { dataProductModel } from '../../models/dataProduct.model'
-import * as Style from './VWishListItem.model'
-import cancel from '../../icons/card_product_icon/cancel.svg'
-import { Link } from 'react-router-dom'
+import React, { PropsWithChildren } from "react";
+import { Link } from "react-router-dom";
+
+import { dataProductModel } from "../../models/dataProduct.model";
+import * as Style from "./VWishListItem.model";
+import cancel from "../../icons/card_product_icon/cancel.svg";
 
 type Props = {
-  data: dataProductModel
-  delete: (id: string) => void
-  onClick: () => void
-}
+  data: dataProductModel;
+  // eslint-disable-next-line no-unused-vars
+  delete: (id: string) => void;
+  onClick: () => void;
+};
 
 export const VWishListItemView: React.FC<PropsWithChildren<Props>> = (
   props: PropsWithChildren<Props>
@@ -31,5 +33,5 @@ export const VWishListItemView: React.FC<PropsWithChildren<Props>> = (
         <img src={cancel} alt="cancel" />
       </div>
     </Style.WishlistItemDiv>
-  )
-}
+  );
+};

@@ -1,24 +1,24 @@
-import React, { PropsWithChildren } from 'react'
-import { NavbarType } from '../../models/navbar.model'
-import * as Style from './VFooter.model'
-import Logo from '../../icons/logo/logo.svg'
-import telefon from '../../icons/contact_icon/phone.svg'
-import adress from '../../icons/contact_icon/location.svg'
-import mail from '../../icons/contact_icon/email.svg'
-import facebook from '../../icons/social_media_icon/facebook.svg'
-import youtube from '../../icons/social_media_icon/youtube.svg'
-import arrow_up from '../../icons/arrow_icon/arrow_up.svg'
-import { Link } from 'react-router-dom'
-import { Container } from '@mui/material'
+import React, { PropsWithChildren } from "react";
+
+import { NavbarType } from "../../models/navbar.model";
+import * as Style from "./VFooter.model";
+import Logo from "../../icons/logo/logo.svg";
+import telefon from "../../icons/contact_icon/phone.svg";
+import adress from "../../icons/contact_icon/location.svg";
+import mail from "../../icons/contact_icon/email.svg";
+import facebook from "../../icons/social_media_icon/facebook.svg";
+import youtube from "../../icons/social_media_icon/youtube.svg";
+import arrow_up from "../../icons/arrow_icon/arrow_up.svg";
+import { Link } from "react-router-dom";
 
 type Props = {
-  data: NavbarType
-}
+  data: NavbarType;
+};
 
 export const VFooterView: React.FC<PropsWithChildren<Props>> = (
   props: PropsWithChildren<Props>
 ) => {
-  const dataYar: number = new Date().getFullYear()
+  const dataYar: number = new Date().getFullYear();
 
   return (
     <>
@@ -95,10 +95,9 @@ export const VFooterView: React.FC<PropsWithChildren<Props>> = (
 
           <div
             onClick={() => {
-              window.scrollTo({ top: 0, behavior: 'smooth' })
+              window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="arrow_up"
-          >
+            className="arrow_up">
             <img src={arrow_up} alt="" />
           </div>
         </Style.ContainerStyle>
@@ -108,5 +107,5 @@ export const VFooterView: React.FC<PropsWithChildren<Props>> = (
         </Style.FooterParaghraph>
       </Style.DesktopBg>
     </>
-  )
-}
+  );
+};

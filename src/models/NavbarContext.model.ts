@@ -1,6 +1,6 @@
-import { NavbarType } from '../models/navbar.model'
+import { NavbarType } from "../models/navbar.model";
 
 export type NavbarContextModel = {
-  data: NavbarType
-  isPending: boolean
-}
+  data: NavbarType;
+  isPending: boolean;
+};

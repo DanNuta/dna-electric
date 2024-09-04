@@ -1,13 +1,12 @@
-import { createGlobalStyle } from 'styled-components'
-import { theme } from './Theme'
+import { createGlobalStyle } from "styled-components";
+
+import { theme } from "./Theme";
 
 export const GlobalStyles = createGlobalStyle`
 
 
-
 *{
     margin: 0;
-    
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
 }
@@ -35,7 +34,7 @@ h1{
     font-weight: 800;
     font-size: 22px;
 
-    ${theme.breakpoints.up('lg')}{
+    ${theme.breakpoints.up("lg")}{
         font-size: 45px;
     }
 }
@@ -57,4 +56,4 @@ a{
     font-weight: bold;
     font-family: 'Open Sans', sans-serif;
 }
-`
+`;

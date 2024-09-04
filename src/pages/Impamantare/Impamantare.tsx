@@ -1,36 +1,36 @@
-import React, { PropsWithChildren, useState, useContext } from 'react'
-import { ImpamantareView } from './Impamantare.view'
-import { dataProductModel } from '../../models/dataProduct.model'
-import { WishlistContext } from '../../context/Context.wishlist'
-import { Wishlist } from '../../models/WislistContext.model'
-import { ProduseContextModel } from '../../models/produseContext.model'
-import { ProductsProvider } from '../../context/Context.products'
+import React, { PropsWithChildren, useState, useContext } from "react";
 
-export const Impamantare: React.FC<PropsWithChildren> = (
-  props: PropsWithChildren
-) => {
-  const { addWishList } = useContext(WishlistContext) as Wishlist
-  const { impamantare } = useContext(ProductsProvider) as ProduseContextModel
+import { ImpamantareView } from "./Impamantare.view";
 
-  const [filterActiveState, setFilterActiveState] = useState<boolean>(false)
-  const [dataFilterState, setDataFilter] = useState<dataProductModel[]>([])
+import { dataProductModel } from "../../models/dataProduct.model";
+import { WishlistContext } from "../../context/Context.wishlist";
+import { Wishlist } from "../../models/WislistContext.model";
+import { ProduseContextModel } from "../../models/produseContext.model";
+import { ProductsProvider } from "../../context/Context.products";
+
+export const Impamantare: React.FC<PropsWithChildren> = (props) => {
+  const { addWishList } = useContext(WishlistContext) as Wishlist;
+  const { impamantare } = useContext(ProductsProvider) as ProduseContextModel;
+
+  const [filterActiveState, setFilterActiveState] = useState<boolean>(false);
+  const [dataFilterState, setDataFilter] = useState<dataProductModel[]>([]);
 
   const filterFn = () => {
-    setFilterActiveState((prev) => !prev)
-  }
+    setFilterActiveState((prev) => !prev);
+  };
 
   const filterElementFn = (c: string) => {
-    setFilterActiveState((prev) => !prev)
+    setFilterActiveState((prev) => !prev);
 
-    setDataFilter((prev) => {
-      const newArray = impamantare.data.filter((item) => item.categoria === c)
+    setDataFilter(() => {
+      const newArray = impamantare.data.filter((item) => item.categoria === c);
 
-      return newArray
-    })
-  }
+      return newArray;
+    });
+  };
 
-  const filter = impamantare.data.map((item) => item.categoria)
-  const individualstring = [...new Set(filter)]
+  const filter = impamantare.data.map((item) => item.categoria);
+  const individualstring = [...new Set(filter)];
 
   return (
     <ImpamantareView
@@ -41,9 +41,8 @@ export const Impamantare: React.FC<PropsWithChildren> = (
       onClick={addWishList}
       data={impamantare.data}
       isPending={impamantare.pending}
-      dataFilter={dataFilterState}
-    >
+      dataFilter={dataFilterState}>
       {props.children}
     </ImpamantareView>
-  )
-}
+  );
+};

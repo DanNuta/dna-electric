@@ -1,11 +1,11 @@
-import { style } from '@mui/system'
-import styled from 'styled-components'
-import { rootColor, Props, displayFlex, theme } from '../styles/Theme'
+import styled from "styled-components";
+
+import { rootColor, displayFlex, theme } from "../styles/Theme";
 
 export const BoxSudare = styled.div`
   display: none;
 
-  ${theme.breakpoints.up('lg')} {
+  ${theme.breakpoints.up("lg")} {
     display: block;
   }
   box-shadow: 2px 2px 6px 2px rgba(0, 0, 0, 0.08);
@@ -33,18 +33,18 @@ export const BoxSudare = styled.div`
     bottom: 0;
     left: 0;
   }
-`
+`;
 
 export const IconElement = styled.div`
   height: 100%;
 
   ${displayFlex({
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: '30px',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "30px"
   })}
-`
+`;
 
 export const Icon = styled.span`
   width: 66px;
@@ -54,12 +54,12 @@ export const Icon = styled.span`
   padding: 10px;
 
   ${displayFlex({
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   })}
 
   img {
     width: 70%;
   }
-`
+`;

@@ -1,41 +1,34 @@
-import React, {
-  FormEvent,
-  FormEventHandler,
-  PropsWithChildren,
-  useContext,
-  useRef,
-  useState,
-} from 'react'
-import * as Style from './Contact.model'
-import { VImput } from '../../components/VInput/VInput'
-import { VButton } from '../../components/VButton/VButton'
-import location from '../../icons/contact_icon/location.svg'
-import mail from '../../icons/contact_icon/email.svg'
-import phone from '../../icons/contact_icon/phone.svg'
-import { NavbarContext } from '../../context/Context.navbar'
-import { StateFormModel } from '../../models/stateForm.model'
-import { NavbarContextModel } from '../../models/NavbarContext.model'
-import { useLocation } from 'react-router-dom'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-unused-vars */
+import React, { PropsWithChildren, useContext, useRef } from "react";
+
+import * as Style from "./Contact.model";
+import { VImput } from "../../components/VInput/VInput";
+import { VButton } from "../../components/VButton/VButton";
+import location from "../../icons/contact_icon/location.svg";
+import mail from "../../icons/contact_icon/email.svg";
+import phone from "../../icons/contact_icon/phone.svg";
+import { NavbarContext } from "../../context/Context.navbar";
+import { StateFormModel } from "../../models/stateForm.model";
+import { NavbarContextModel } from "../../models/NavbarContext.model";
 
 type Props = {
-  onChangeName: (e: React.FormEvent<HTMLInputElement>) => void
-  onChangeEmail: (e: React.FormEvent<HTMLInputElement>) => void
-  onChangeTel: (e: React.FormEvent<HTMLInputElement>) => void
-  onChangeMsj: (e: React.FormEvent<HTMLTextAreaElement>) => void
-  nameState: StateFormModel
-  emailState: StateFormModel
-  telState: StateFormModel
-  msjState: StateFormModel
-  contact: (e: any, form: any) => void
-  isPendingState: boolean | null
-}
+  onChangeName: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChangeEmail: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChangeTel: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChangeMsj: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  nameState: StateFormModel;
+  emailState: StateFormModel;
+  telState: StateFormModel;
+  msjState: StateFormModel;
+  contact: (e: React.FormEvent, form: any) => void;
+  isPendingState: boolean | null;
+};
 
-export const ContactViwe: React.FC<PropsWithChildren<Props>> = (
-  props: PropsWithChildren<Props>
-) => {
-  const form = useRef<HTMLFormElement | null>(null)
+export const ContactViwe: React.FC<PropsWithChildren<Props>> = (props) => {
+  const form = useRef<HTMLFormElement | null>(null);
 
-  const { data } = useContext(NavbarContext) as NavbarContextModel
+  const { data } = useContext(NavbarContext) as NavbarContextModel;
 
   return (
     <Style.ContactDiv>
@@ -65,7 +58,7 @@ export const ContactViwe: React.FC<PropsWithChildren<Props>> = (
             type="email"
             label="Email"
             placeholder="ignatiucanastasia@gmail.com"
-            onChange={props.onChangeEmail}
+            onChange={(value) => props.onChangeEmail(value)}
           />
           <VImput
             nameState={props.telState}
@@ -85,7 +78,7 @@ export const ContactViwe: React.FC<PropsWithChildren<Props>> = (
             onChangeArea={props.onChangeMsj}
           />
           <VButton bg="rgba(255, 214, 0, 1)">
-            {props.isPendingState ? 'Sending...' : 'Contacteaza-ne'}
+            {props.isPendingState ? "Sending..." : "Contacteaza-ne"}
           </VButton>
         </Style.ElementInput>
 
@@ -115,14 +108,13 @@ export const ContactViwe: React.FC<PropsWithChildren<Props>> = (
 
       <VButton
         onClick={(e) => props.contact(e, form)}
-        bg="rgba(255, 214, 0, 1)"
-      >
-        {props.isPendingState ? 'Sending...' : 'Contacteaza-ne'}
+        bg="rgba(255, 214, 0, 1)">
+        {props.isPendingState ? "Sending..." : "Contacteaza-ne"}
       </VButton>
 
       <Style.MapDiv>
         <iframe src={data.map} />
       </Style.MapDiv>
     </Style.ContactDiv>
-  )
-}
+  );
+};

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const WishlistItemDiv = styled.div`
   display: flex;
@@ -44,4 +44,4 @@ export const WishlistItemDiv = styled.div`
     position: absolute;
     right: 10px;
   }
-`
+`;

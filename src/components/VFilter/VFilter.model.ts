@@ -1,9 +1,10 @@
-import styled from 'styled-components'
-import { theme } from '../styles/Theme'
+import styled from "styled-components";
+
+import { theme } from "../styles/Theme";
 
 type Props = {
-  display?: string
-}
+  display?: string;
+};
 
 export const FilterElement = styled.div<Props>`
   display: flex;
@@ -13,7 +14,7 @@ export const FilterElement = styled.div<Props>`
   cursor: pointer;
 
   p {
-    ${theme.breakpoints.up('lg')} {
+    ${theme.breakpoints.up("lg")} {
       margin-bottom: 15px;
     }
   }
@@ -23,7 +24,7 @@ export const FilterElement = styled.div<Props>`
     border-radius: 2px;
     display: ${(props) => props.display};
   }
-`
+`;
 
 export const BoxCheckDiv = styled.div<Props>`
   width: 14px;
@@ -32,7 +33,7 @@ export const BoxCheckDiv = styled.div<Props>`
   border: 1px solid rgba(39, 39, 39, 1);
   padding: 2px;
 
-  ${theme.breakpoints.up('lg')} {
+  ${theme.breakpoints.up("lg")} {
     margin-bottom: 15px;
   }
 
@@ -42,4 +43,4 @@ export const BoxCheckDiv = styled.div<Props>`
     height: 100%;
     width: 100%;
   }
-`
+`;

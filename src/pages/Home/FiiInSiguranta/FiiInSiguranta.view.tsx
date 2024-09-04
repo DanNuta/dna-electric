@@ -1,22 +1,24 @@
-import { FirebaseError } from 'firebase/app'
-import React, { PropsWithChildren, useContext } from 'react'
-import { fiiInSiguranta } from '../../../models/fiiInSiguranta.model'
-import * as Styled from './FiiInSiguranta.model'
-import { LinkCOmponent } from '../../../components/VLink/VLink'
-import { theme, rootColor, displayFlex } from '../../../components/styles/Theme'
-import { NavbarContext } from '../../../context/Context.navbar'
-import { NavbarContextModel } from '../../../models/NavbarContext.model'
+import { FirebaseError } from "firebase/app";
+
+import * as Styled from "./FiiInSiguranta.model";
+
+import React, { PropsWithChildren, useContext } from "react";
+import { fiiInSiguranta } from "../../../models/fiiInSiguranta.model";
+import { LinkCOmponent } from "../../../components/VLink/VLink";
+import { rootColor } from "../../../components/styles/Theme";
+import { NavbarContext } from "../../../context/Context.navbar";
+import { NavbarContextModel } from "../../../models/NavbarContext.model";
 
 type Props = {
-  data: fiiInSiguranta
-  error: FirebaseError | null
-  isPending: boolean
-}
+  data: fiiInSiguranta;
+  error: FirebaseError | null;
+  isPending: boolean;
+};
 
 export const FiiInSigurantaView: React.FC<PropsWithChildren<Props>> = (
   props: PropsWithChildren<Props>
 ) => {
-  const { data } = useContext(NavbarContext) as NavbarContextModel
+  const { data } = useContext(NavbarContext) as NavbarContextModel;
 
   return (
     <>
@@ -60,5 +62,5 @@ export const FiiInSigurantaView: React.FC<PropsWithChildren<Props>> = (
         </Styled.RightImg>
       </Styled.DesktopElement>
     </>
-  )
-}
+  );
+};

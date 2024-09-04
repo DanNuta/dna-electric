@@ -1,30 +1,25 @@
-import React, { useContext } from 'react'
-import { Container, Grid } from '@mui/material'
-import { VCardItem } from '../../../components/VCardItem/VCardItem'
-import { WishlistContext } from '../../../context/Context.wishlist'
-import { Wishlist } from '../../../models/WislistContext.model'
-import { dataProductModel } from '../../../models/dataProduct.model'
-import * as Style from './ProduseSimilare.module'
-import {
-  Link,
-  Outlet,
-  useNavigate,
-  useParams,
-  useLocation,
-} from 'react-router-dom'
-import hoverWishlist from '../../../icons/hover_icon/wishlist-hover.svg'
-import wishlist from '../../../icons/hover_icon/wish_list.svg'
+import React, { useContext } from "react";
+import { Grid } from "@mui/material";
+import { WishlistContext } from "../../../context/Context.wishlist";
+import { Wishlist } from "../../../models/WislistContext.model";
+import { dataProductModel } from "../../../models/dataProduct.model";
+import * as Style from "./ProduseSimilare.module";
+import { Link, Outlet, useLocation } from "react-router-dom";
+import hoverWishlist from "../../../icons/hover_icon/wishlist-hover.svg";
+import wishlist from "../../../icons/hover_icon/wish_list.svg";
 
 type Props = {
-  data?: dataProductModel[]
-  link?: string
-}
+  data?: dataProductModel[];
+  link?: string;
+};
 
 export const ProduseSimilare: React.FC<Props> = (props: Props) => {
-  const location = useLocation()
-  const path = (location.pathname = '')
+  const location = useLocation();
+  const path = (location.pathname = "");
 
-  const { addWishList, wishlistState } = useContext(WishlistContext) as Wishlist
+  const { addWishList, wishlistState } = useContext(
+    WishlistContext
+  ) as Wishlist;
 
   return (
     <>
@@ -32,8 +27,6 @@ export const ProduseSimilare: React.FC<Props> = (props: Props) => {
         props.data.slice(0, 4).map((item, i) => {
           return (
             <Grid xs={6} md={3} key={i} item>
-              {/* <VCardItem onClick={() => addWishList(item)} data={item}></VCardItem> */}
-
               <Style.ProduseSimilareDiv>
                 <Link to={`${path}/${props.link}/${item.id}`}>
                   <div className="img">
@@ -47,10 +40,7 @@ export const ProduseSimilare: React.FC<Props> = (props: Props) => {
                   </div>
                 </Link>
 
-                <div
-                  onClick={(e) => addWishList(item)}
-                  className="hoverElement"
-                >
+                <div onClick={() => addWishList(item)} className="hoverElement">
                   <img
                     src={
                       wishlistState.includes(item) ? hoverWishlist : wishlist
@@ -61,10 +51,10 @@ export const ProduseSimilare: React.FC<Props> = (props: Props) => {
                 </div>
               </Style.ProduseSimilareDiv>
             </Grid>
-          )
+          );
         })}
 
       <Outlet />
     </>
-  )
-}
+  );
+};

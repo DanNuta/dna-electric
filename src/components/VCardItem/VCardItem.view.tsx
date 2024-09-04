@@ -1,26 +1,26 @@
-import React, { PropsWithChildren, useContext } from 'react'
-import { dataProductModel } from '../../models/dataProduct.model'
-import * as Style from './VCardItem.model'
-import wishlist from '../../icons/hover_icon/wish_list.svg'
-import { Link, useLocation } from 'react-router-dom'
-import wishlistHover from '../../icons/card_product_icon/wishlistHover.svg'
-import { WishlistContext } from '../../context/Context.wishlist'
-import shop from '../../icons/card_product_icon/shop.svg'
-import { Wishlist } from '../../models/WislistContext.model'
+import React, { PropsWithChildren, useContext } from "react";
+import { Link } from "react-router-dom";
+
+import { dataProductModel } from "../../models/dataProduct.model";
+import * as Style from "./VCardItem.model";
+import wishlist from "../../icons/hover_icon/wish_list.svg";
+import wishlistHover from "../../icons/card_product_icon/wishlistHover.svg";
+import { WishlistContext } from "../../context/Context.wishlist";
+import shop from "../../icons/card_product_icon/shop.svg";
+import { Wishlist } from "../../models/WislistContext.model";
 
 type Props = {
-  data: dataProductModel
-  onClick?: (item: dataProductModel) => void
-  localStorege?: string
-}
+  data: dataProductModel;
+  // eslint-disable-next-line no-unused-vars
+  onClick?: (data: dataProductModel) => void;
+  localStorege?: string;
+};
 
-export const VCardItemView: React.FC<PropsWithChildren<Props>> = (
-  props: PropsWithChildren<Props>
-) => {
-  const { wishlistState } = useContext(WishlistContext) as Wishlist
+export const VCardItemView: React.FC<PropsWithChildren<Props>> = (props) => {
+  const { wishlistState } = useContext(WishlistContext) as Wishlist;
   const checkItExist = wishlistState.some(
     (item: dataProductModel) => item.id === props.data.id
-  )
+  );
 
   return (
     <Style.VCardItemDiv>
@@ -34,8 +34,6 @@ export const VCardItemView: React.FC<PropsWithChildren<Props>> = (
         <h1 className="title">{props.data.title.substring(0, 55)}</h1>
 
         <div className="action_btn">
-          {/* <li><a href="https://www.paratrasnet.shop" target="_blank"><img src={shop} alt="shop" />Adauga in cos</a></li> */}
-          {/* <img src={shop} alt="shop" /> */}
           <span>
             <a href="https://www.paratrasnet.shop" target="_blank">
               <img src={shop} alt="shop" />
@@ -47,5 +45,5 @@ export const VCardItemView: React.FC<PropsWithChildren<Props>> = (
         </div>
       </div>
     </Style.VCardItemDiv>
-  )
-}
+  );
+};

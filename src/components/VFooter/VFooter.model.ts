@@ -1,14 +1,16 @@
-import styled from 'styled-components'
-import { theme, rootColor } from '../../components/styles/Theme'
-import { Container } from '@mui/material'
+/* eslint-disable max-lines */
+import styled from "styled-components";
+import { Container } from "@mui/material";
+
+import { theme, rootColor } from "../../components/styles/Theme";
 
 export const DesktopBg = styled.div`
-  ${theme.breakpoints.up('lg')} {
+  ${theme.breakpoints.up("lg")} {
     display: block;
     background-color: ${rootColor.secondary};
     margin-top: 115px;
   }
-`
+`;
 
 export const ContainerStyle = styled(Container)`
   display: flex !important;
@@ -21,12 +23,12 @@ export const ContainerStyle = styled(Container)`
   width: 100%;
   max-width: 1536px;
 
-  ${theme.breakpoints.up('lg')} {
+  ${theme.breakpoints.up("lg")} {
     display: flex !important;
     flex-direction: row;
     background-color: transparent;
     width: 100%;
-    max-width: ${theme.breakpoints.values.xl + 'px'} !important;
+    max-width: ${theme.breakpoints.values.xl + "px"} !important;
     margin: auto;
     gap: 60px;
   }
@@ -35,14 +37,14 @@ export const ContainerStyle = styled(Container)`
     display: none;
     cursor: pointer;
 
-    ${theme.breakpoints.up('lg')} {
+    ${theme.breakpoints.up("lg")} {
       display: block;
     }
   }
-`
+`;
 
 export const LogoProgramDiv = styled.div`
-  ${theme.breakpoints.up('lg')} {
+  ${theme.breakpoints.up("lg")} {
     width: 505px;
   }
 
@@ -54,7 +56,7 @@ export const LogoProgramDiv = styled.div`
     display: flex;
     justify-content: center;
 
-    ${theme.breakpoints.up('lg')} {
+    ${theme.breakpoints.up("lg")} {
       justify-content: flex-start;
       margin-bottom: 40px;
     }
@@ -71,7 +73,7 @@ export const LogoProgramDiv = styled.div`
     flex-direction: column;
     gap: 10px;
 
-    ${theme.breakpoints.up('lg')} {
+    ${theme.breakpoints.up("lg")} {
       text-align: left;
       justify-content: flex-start;
       align-items: flex-start;
@@ -82,7 +84,7 @@ export const LogoProgramDiv = styled.div`
       gap: 15px;
       align-items: center;
 
-      ${theme.breakpoints.up('lg')} {
+      ${theme.breakpoints.up("lg")} {
         margin-bottom: 25px;
       }
 
@@ -99,10 +101,10 @@ export const LogoProgramDiv = styled.div`
       }
     }
   }
-`
+`;
 
 export const MapsDiv = styled.div`
-  ${theme.breakpoints.up('lg')} {
+  ${theme.breakpoints.up("lg")} {
     width: 100%;
   }
 
@@ -111,7 +113,7 @@ export const MapsDiv = styled.div`
     flex-direction: column;
     color: white;
 
-    ${theme.breakpoints.up('lg')} {
+    ${theme.breakpoints.up("lg")} {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -128,7 +130,7 @@ export const MapsDiv = styled.div`
       justify-content: center;
       margin-top: 2rem;
 
-      ${theme.breakpoints.up('lg')} {
+      ${theme.breakpoints.up("lg")} {
         gap: 60px;
         flex-wrap: nowrap;
         height: 100%;
@@ -153,7 +155,7 @@ export const MapsDiv = styled.div`
     justify-content: center;
     gap: 25px;
 
-    ${theme.breakpoints.up('lg')} {
+    ${theme.breakpoints.up("lg")} {
       margin: 0;
     }
 
@@ -161,7 +163,7 @@ export const MapsDiv = styled.div`
       img {
         width: 15%;
 
-        ${theme.breakpoints.up('lg')} {
+        ${theme.breakpoints.up("lg")} {
           width: 100%;
         }
       }
@@ -177,7 +179,7 @@ export const MapsDiv = styled.div`
     height: 152px;
     margin: auto;
 
-    ${theme.breakpoints.up('lg')} {
+    ${theme.breakpoints.up("lg")} {
       width: 100%;
       height: 180px;
     }
@@ -188,11 +190,11 @@ export const MapsDiv = styled.div`
       border: 0;
     }
   }
-`
+`;
 
 export const FooterParaghraph = styled.p`
   text-align: center;
   background-color: #272727;
   color: white;
   padding: 2rem 0 1rem 0;
-`
+`;

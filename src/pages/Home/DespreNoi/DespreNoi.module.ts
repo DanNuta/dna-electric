@@ -1,18 +1,19 @@
-import styled from 'styled-components'
-import { theme } from '../../../components/styles/Theme'
+import styled from "styled-components";
+
+import { theme } from "../../../components/styles/Theme";
 
 export const SectionElement = styled.section`
   h1 {
     margin: 45px 0 30px 0;
   }
-`
+`;
 
 export const DespreNoiDiv = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px 20px;
 
-  ${theme.breakpoints.up('lg')} {
+  ${theme.breakpoints.up("lg")} {
     flex-direction: row;
   }
 
@@ -21,7 +22,7 @@ export const DespreNoiDiv = styled.div`
     gap: 20px 0;
     flex-direction: column;
 
-    ${theme.breakpoints.up('lg')} {
+    ${theme.breakpoints.up("lg")} {
       flex-direction: column-reverse;
       justify-content: flex-end;
       width: 50%;
@@ -48,7 +49,7 @@ export const DespreNoiDiv = styled.div`
     gap: 20px 0;
     flex-direction: column;
 
-    ${theme.breakpoints.up('lg')} {
+    ${theme.breakpoints.up("lg")} {
       flex-direction: column-reverse;
 
       img {
@@ -57,4 +58,4 @@ export const DespreNoiDiv = styled.div`
       }
     }
   }
-`
+`;

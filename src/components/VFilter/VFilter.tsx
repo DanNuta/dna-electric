@@ -1,13 +1,12 @@
-import React, { PropsWithChildren } from 'react'
-import { VFilterView } from './VFilter.view'
-import { dataProductModel } from '../../models/dataProduct.model'
+import React, { PropsWithChildren } from "react";
+
+import { VFilterView } from "./VFilter.view";
 
 type Props = {
-  onClick: () => void
-  item: string
-  //filterActive?: string[] | undefined;
-  display?: string
-}
+  onClick: () => void;
+  item: string;
+  display?: string;
+};
 
 export const VFilter: React.FC<PropsWithChildren<Props>> = (
   props: PropsWithChildren<Props>
@@ -16,9 +15,8 @@ export const VFilter: React.FC<PropsWithChildren<Props>> = (
     <VFilterView
       display={props.display}
       item={props.item}
-      onClick={props.onClick}
-    >
+      onClick={props.onClick}>
       {props.children}
     </VFilterView>
-  )
-}
+  );
+};

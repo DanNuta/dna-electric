@@ -1,42 +1,39 @@
-import React, { useState, createContext, PropsWithChildren } from 'react'
-import { dataProductModel } from '../models/dataProduct.model'
-import { Wishlist } from '../models/WislistContext.model'
+import React, { useState, createContext, PropsWithChildren } from "react";
 
-export const WishlistContext = createContext<Wishlist | null>(null)
+import { dataProductModel } from "../models/dataProduct.model";
+import { Wishlist } from "../models/WislistContext.model";
 
-export const WislistContext: React.FC<PropsWithChildren> = (
-  props: PropsWithChildren
-) => {
-  const [wishlistState, setWishListState] = useState<dataProductModel[]>([])
+export const WishlistContext = createContext<Wishlist | null>(null);
+
+export const WislistContext: React.FC<PropsWithChildren> = (props) => {
+  const [wishlistState, setWishListState] = useState<dataProductModel[]>([]);
 
   const addWishList = (item: dataProductModel) => {
     const wishListChecl = wishlistState.some(
       (element) => element.id === item.id
-    )
+    );
 
-    wishListChecl
-      ? setWishListState((prev) => {
-          const newArray = prev.filter((index) => index.id !== item.id)
-          return newArray
-        })
-      : setWishListState((prev) => {
-          const newArray = [...prev, item]
-          return newArray
-        })
-  }
+    setWishListState((prev) => {
+      if (wishListChecl) {
+        const newArray = prev.filter((index) => index.id !== item.id);
+        return newArray;
+      } else {
+        const newArray = [...prev, item];
+        return newArray;
+      }
+    });
+  };
 
   const deleteItem = (id: string) => {
     setWishListState((prev) => {
-      const newArray = prev.filter((item) => item.id !== id)
-      return newArray
-    })
-  }
+      const newArray = prev.filter((item) => item.id !== id);
+      return newArray;
+    });
+  };
 
   const deleteAll = () => {
-    setWishListState((prev: dataProductModel[]) => {
-      return []
-    })
-  }
+    setWishListState([]);
+  };
 
   return (
     <WishlistContext.Provider
@@ -44,10 +41,9 @@ export const WislistContext: React.FC<PropsWithChildren> = (
         wishlistState,
         addWishList,
         deleteItem,
-        deleteAll,
-      }}
-    >
+        deleteAll
+      }}>
       {props.children}
     </WishlistContext.Provider>
-  )
-}
+  );
+};

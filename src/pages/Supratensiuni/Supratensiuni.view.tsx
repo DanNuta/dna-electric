@@ -1,28 +1,28 @@
-import React, { PropsWithChildren } from 'react'
-import { dataProductModel } from '../../models/dataProduct.model'
-import * as Styled from './Supratensiuni.model'
-import { Grid, Container } from '@mui/material'
-import { VCardItem } from '../../components/VCardItem/VCardItem'
-import filter from '../../icons/card_product_icon/filter.svg'
-import { VFilter } from '../../components/VFilter/VFilter'
-import { VLoaderView } from '../../components/VLoader/VLoader'
+import React, { PropsWithChildren } from "react";
+import { dataProductModel } from "../../models/dataProduct.model";
+import * as Styled from "./Supratensiuni.model";
+import { Grid, Container } from "@mui/material";
+import { VCardItem } from "../../components/VCardItem/VCardItem";
+import filter from "../../icons/card_product_icon/filter.svg";
+import { VFilter } from "../../components/VFilter/VFilter";
+import { VLoaderView } from "../../components/VLoader/VLoader";
 
 type Props = {
-  data: dataProductModel[]
-  isPending: boolean | null
-  onClick: (item: dataProductModel) => void
-  filterFn: () => void
-  filterActiveState: boolean
-  filterItemFn: (c: string) => void
-  filterActive?: string[]
-  dataFilter: dataProductModel[]
-}
+  data: dataProductModel[];
+  isPending: boolean | null;
+  // eslint-disable-next-line no-unused-vars
+  onClick: (item: dataProductModel) => void;
+  filterFn: () => void;
+  filterActiveState: boolean;
+  // eslint-disable-next-line no-unused-vars
+  filterItemFn: (c: string) => void;
+  filterActive?: string[];
+  dataFilter: dataProductModel[];
+};
 
 export const SupratensiuniView: React.FC<PropsWithChildren<Props>> = (
   props: PropsWithChildren<Props>
 ) => {
-  console.log(props.isPending, 'Ispndign')
-
   return (
     <Container maxWidth="xl">
       {props.isPending ? (
@@ -43,20 +43,19 @@ export const SupratensiuniView: React.FC<PropsWithChildren<Props>> = (
               <div className="filter">
                 <h2>Supratensiune</h2>
                 {props.data &&
-                  props.filterActive?.map((item, index) => {
+                  props.filterActive?.map((item) => {
                     return (
                       <VFilter
                         display={
                           props.dataFilter[0] !== undefined &&
                           props.dataFilter[0].categoria === item
-                            ? 'block'
-                            : 'none'
+                            ? "block"
+                            : "none"
                         }
-                        //filterActive={props.filterActive}
                         item={item}
                         onClick={() => props.filterItemFn(item)}
                       />
-                    )
+                    );
                   })}
               </div>
             )}
@@ -67,20 +66,20 @@ export const SupratensiuniView: React.FC<PropsWithChildren<Props>> = (
               <Styled.FilterDesktop>
                 <h2>Supratensiune</h2>
                 {props.data &&
-                  props.filterActive?.map((item, index) => {
+                  props.filterActive?.map((item) => {
                     return (
                       <VFilter
                         display={
                           props.dataFilter[0] !== undefined &&
                           props.dataFilter[0].categoria === item
-                            ? 'block'
-                            : 'none'
+                            ? "block"
+                            : "none"
                         }
                         //filterActive={props.filterActive}
                         item={item}
                         onClick={() => props.filterItemFn(item)}
                       />
-                    )
+                    );
                   })}
               </Styled.FilterDesktop>
             </Grid>
@@ -97,7 +96,7 @@ export const SupratensiuniView: React.FC<PropsWithChildren<Props>> = (
                       data={item}
                     />
                   </Grid>
-                )
+                );
               })
             ) : (
               props.dataFilter.map((item, index: number) => {
@@ -105,12 +104,12 @@ export const SupratensiuniView: React.FC<PropsWithChildren<Props>> = (
                   <Grid lg={3} xs={6} item key={index}>
                     <VCardItem onClick={props.onClick} data={item} />
                   </Grid>
-                )
+                );
               })
             )}
           </Grid>
         </Styled.ProductsDiv>
       )}
     </Container>
-  )
-}
+  );
+};

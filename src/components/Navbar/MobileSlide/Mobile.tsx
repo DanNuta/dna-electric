@@ -1,14 +1,12 @@
-import { MobileResponsiveView } from './Mobile.view'
-import React, { PropsWithChildren } from 'react'
-import { NavbarType } from '../../../models/navbar.model'
+import React from "react";
+
+import { MobileResponsiveView } from "./Mobile.view";
 
 type Props = {
-  toggle: () => void
-  stateCkeck: boolean
-}
+  toggle: () => void;
+  stateCkeck: boolean;
+};
 
-export const MobileResponsive: React.FC<PropsWithChildren<Props>> = (
-  props: PropsWithChildren<Props>
-) => {
-  return <MobileResponsiveView state={props.stateCkeck} toggle={props.toggle} />
-}
+export const MobileResponsive: React.FC<Props> = ({ stateCkeck, toggle }) => {
+  return <MobileResponsiveView state={stateCkeck} toggle={toggle} />;
+};
