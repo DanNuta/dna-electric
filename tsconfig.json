@@ -20,7 +20,8 @@
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "models": ["./src/models"],
-      "components": ["./src/components"]
+      "components": ["./src/components"],
+      "firebase-config": ["./src/firebase"]
     }
   },
   "include": ["src"],

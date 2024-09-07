@@ -2,12 +2,11 @@ import React, { PropsWithChildren, useEffect, useState } from "react";
 import { collection, FirestoreError, onSnapshot } from "firebase/firestore";
 
 import { WhatWeOffer } from "models";
+import { db } from "firebase-config";
 
-import { WhatWeOfferSectionView } from "./WhatWeOffer.view";
+import { WhatWeOfferSectionView } from "./WhatWeOfferSection.view";
 
-import { db } from "../../../firebase/config";
-
-export const CeOferim: React.FC<PropsWithChildren> = (props) => {
+export const WhatWeOfferSection: React.FC<PropsWithChildren> = (props) => {
   const [dataState, setDataState] = useState<WhatWeOffer[]>([]);
 
   const [isPendingState, setIsPendingState] = useState<boolean>(false);
