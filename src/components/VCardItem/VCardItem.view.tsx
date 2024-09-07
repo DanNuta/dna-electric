@@ -1,12 +1,13 @@
 import React, { PropsWithChildren, useContext } from "react";
 import { Link } from "react-router-dom";
 
+import { Shop } from "icons";
+
 import { dataProductModel } from "../../models/dataProduct.model";
 import * as Style from "./VCardItem.model";
 import wishlist from "../../icons/hover_icon/wish_list.svg";
 import wishlistHover from "../../icons/card_product_icon/wishlistHover.svg";
 import { WishlistContext } from "../../context/Context.wishlist";
-import shop from "../../icons/card_product_icon/shop.svg";
 import { Wishlist } from "../../models/WislistContext.model";
 
 type Props = {
@@ -36,7 +37,7 @@ export const VCardItemView: React.FC<PropsWithChildren<Props>> = (props) => {
         <div className="action_btn">
           <span>
             <a href="https://www.paratrasnet.shop" target="_blank">
-              <img src={shop} alt="shop" />
+              <Shop />
             </a>
           </span>
           <span onClick={() => props.onClick?.(props.data)}>

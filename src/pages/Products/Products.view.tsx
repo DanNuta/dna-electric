@@ -1,15 +1,14 @@
 /* eslint-disable max-lines */
 import React, { PropsWithChildren, useContext } from "react";
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, Button, Box } from "@mui/material";
+
+import { Shop, Wishlist as WishlistIcon } from "icons";
 
 import * as Style from "./Products.model";
 import { VPromotionSection } from "./components";
 
-import wishlist from "../../icons/hover_icon/wish_list.svg";
-import wishlistHover from "../../icons/card_product_icon/wishlistHover.svg";
 import { WishlistContext } from "../../context/Context.wishlist";
 import { dataProductModel } from "../../models/dataProduct.model";
-import shop from "../../icons/card_product_icon/shop.svg";
 import { Wishlist } from "../../models/WislistContext.model";
 import { NavbarContext } from "../../context/Context.navbar";
 import { useLocation } from "react-router-dom";
@@ -87,24 +86,25 @@ export const ProductsView: React.FC<PropsWithChildren<Props>> = (
                 Contacteaza-ne
               </LinkCOmponent>
 
-              <ul>
-                <li>
-                  <a
-                    className="shop_class"
-                    href="https://www.paratrasnet.shop"
-                    target="_blank">
-                    <img src={shop} alt="shop" />
-                    Adauga in cos
-                  </a>
-                </li>
-                <li onClick={() => props.wishlist(props.data)}>
-                  <img
-                    src={checkItExist ? wishlist : wishlistHover}
-                    alt="wishlist"
-                  />
+              <Box mt="20px" display="flex" gap="20px">
+                <Button
+                  sx={(theme) => ({
+                    "&:hover": {
+                      color: theme.palette.primary.main
+                    }
+                  })}
+                  color="secondary"
+                  startIcon={<Shop />}>
+                  Adauga in cos
+                </Button>
+
+                <Button
+                  startIcon={<WishlistIcon />}
+                  color={checkItExist ? "primary" : "secondary"}
+                  onClick={() => props.wishlist(props.data)}>
                   Adauga in la favorite
-                </li>
-              </ul>
+                </Button>
+              </Box>
             </Style.ContactShoWishlistDiv>
           </Style.InfoDiv>
         </Style.ItemProductsDiv>
