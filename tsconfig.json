@@ -19,7 +19,8 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "models": ["./src/models"]
+      "models": ["./src/models"],
+      "components": ["./src/components"]
     }
   },
   "include": ["src"],

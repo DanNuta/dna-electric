@@ -1,14 +1,13 @@
-import { CeOferimView } from "./CeOferim.view";
-
 import React, { PropsWithChildren, useEffect, useState } from "react";
 import { collection, FirestoreError, onSnapshot } from "firebase/firestore";
-import { db } from "../../../firebase/config";
 
 import { WhatWeOffer } from "models";
 
-export const CeOferim: React.FC<PropsWithChildren> = (
-  props: PropsWithChildren
-) => {
+import { WhatWeOfferSectionView } from "./WhatWeOffer.view";
+
+import { db } from "../../../firebase/config";
+
+export const CeOferim: React.FC<PropsWithChildren> = (props) => {
   const [dataState, setDataState] = useState<WhatWeOffer[]>([]);
 
   const [isPendingState, setIsPendingState] = useState<boolean>(false);
@@ -45,11 +44,11 @@ export const CeOferim: React.FC<PropsWithChildren> = (
   }, []);
 
   return (
-    <CeOferimView
+    <WhatWeOfferSectionView
       data={dataState}
       error={errorState}
       isPending={isPendingState}>
       {props.children}
-    </CeOferimView>
+    </WhatWeOfferSectionView>
   );
 };

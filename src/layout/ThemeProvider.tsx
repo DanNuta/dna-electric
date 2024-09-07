@@ -6,6 +6,9 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
     palette: {
       primary: {
         main: "#FFD600"
+      },
+      secondary: {
+        main: "#272727"
       }
     }
   });
