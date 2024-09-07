@@ -9,17 +9,17 @@ import { WhatWeOfferSectionView } from "./WhatWeOfferSection.view";
 export const WhatWeOfferSection: React.FC<PropsWithChildren> = (props) => {
   const [dataState, setDataState] = useState<WhatWeOffer[]>([]);
 
-  const [isPendingState, setIsPendingState] = useState<boolean>(false);
+  const [isPendingState, setIsPendingState] = useState(false);
   const [errorState, setErrorState] = useState<FirestoreError | null>(null);
 
   useEffect(() => {
     setIsPendingState(true);
     const ref = collection(db, "CeOferim");
 
-    const onSubscribe = onSnapshot(ref, (snapshopt) => {
+    const onSubscribe = onSnapshot(ref, (snapshot) => {
       const dataBD: WhatWeOffer[] = [];
 
-      snapshopt.docs.forEach(
+      snapshot.docs.forEach(
         (item) => {
           dataBD.push({
             title: item.data().title,
