@@ -1,4 +1,5 @@
 import { arrowLeft, facebookIcon } from "./custom";
+export * from "./promotion";
 
 const Icons = {
   arrowLeft,

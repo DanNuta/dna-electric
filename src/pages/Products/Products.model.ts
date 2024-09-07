@@ -159,28 +159,6 @@ export const ProduseSimilareDiv = styled.div`
   }
 `;
 
-export const CalitateDiv = styled.div`
-  width: 90%;
-  margin: auto;
-  border: 1px solid rgba(39, 39, 39, 0.1);
-  text-align: center;
-  padding: 20px 16px;
-
-  ${theme.breakpoints.up("md")} {
-    width: 100%;
-    margin: 0;
-  }
-
-  img {
-    width: 60%;
-    margin-bottom: 25px;
-  }
-
-  h5 {
-    margin-bottom: 10px;
-  }
-`;
-
 export const Button = styled.button<Props>`
   display: ${(props) => props.display};
 `;

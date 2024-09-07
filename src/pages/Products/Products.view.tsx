@@ -1,16 +1,15 @@
 /* eslint-disable max-lines */
 import React, { PropsWithChildren, useContext } from "react";
+import { Container, Grid } from "@mui/material";
+
 import * as Style from "./Products.model";
+import { VPromotionSection } from "./components";
 
 import wishlist from "../../icons/hover_icon/wish_list.svg";
 import wishlistHover from "../../icons/card_product_icon/wishlistHover.svg";
 import { WishlistContext } from "../../context/Context.wishlist";
 import { dataProductModel } from "../../models/dataProduct.model";
 import shop from "../../icons/card_product_icon/shop.svg";
-import { Container, Grid } from "@mui/material";
-import like from "../../icons/calitate/like.svg";
-import calitate from "../../icons/calitate/calitate.svg";
-import garantie from "../../icons/calitate/garantie.svg";
 import { Wishlist } from "../../models/WislistContext.model";
 import { NavbarContext } from "../../context/Context.navbar";
 import { useLocation } from "react-router-dom";
@@ -119,31 +118,7 @@ export const ProductsView: React.FC<PropsWithChildren<Props>> = (
         </Grid>
       </Style.ProduseSimilareDiv>
 
-      <Grid container spacing={3}>
-        <Grid md={4} xs={12} item>
-          <Style.CalitateDiv>
-            <img src={calitate} alt="calitate" />
-            <h5>Calitate inalta</h5>
-            <p>Paratrasnetul nostru protejeaza de la cele mai mari tensiuni</p>
-          </Style.CalitateDiv>
-        </Grid>
-
-        <Grid md={4} xs={12} item>
-          <Style.CalitateDiv>
-            <img src={like} alt="calitate" />
-            <h5>Protectie exceptionala</h5>
-            <p>Paratrasnetul nostru protejeaza de la cele mai mari tensiuni</p>
-          </Style.CalitateDiv>
-        </Grid>
-
-        <Grid md={4} xs={12} item>
-          <Style.CalitateDiv>
-            <img src={garantie} alt="calitate" />
-            <h5>Garantie de lunga durata</h5>
-            <p>Paratrasnetul nostru protejeaza de la cele mai mari tensiuni</p>
-          </Style.CalitateDiv>
-        </Grid>
-      </Grid>
+      <VPromotionSection />
     </Container>
   );
 };

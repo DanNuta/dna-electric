@@ -21,6 +21,7 @@
     "paths": {
       "models": ["./src/models"],
       "components": ["./src/components"],
+      "icons": ["./src/icons"],
       "firebase-config": ["./src/firebase"]
     }
   },
