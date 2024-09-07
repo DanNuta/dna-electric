@@ -1,9 +1,11 @@
 import React, { PropsWithChildren } from "react";
+
+import { VFilter } from "components";
+
 import { dataProductModel } from "../../models/dataProduct.model";
 import * as Styled from "./Paratrasnet.model";
 import { VCardItem } from "../../components/VCardItem/VCardItem";
 import filter from "../../icons/card_product_icon/filter.svg";
-import { VFilter } from "../../components/VFilter/VFilter";
 import { Container, Grid } from "@mui/material";
 import { VLoaderView } from "../../components/VLoader/VLoader";
 
