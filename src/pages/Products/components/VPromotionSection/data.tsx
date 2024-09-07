@@ -9,12 +9,12 @@ export const promotionList = [
   },
   {
     title: "Protectie exceptionala",
-    description: "Paratrasnetul nostru protejeaza de la cele mai mari tensiuni",
+    description: "Protecție Avansată împotriva Tensiunilor Mari",
     icon: <Like />
   },
   {
     title: "Garantie de lunga durata",
-    description: "Paratrasnetul nostru protejeaza de la cele mai mari tensiuni",
+    description: "Performanță de Top în Condiții Extreme",
     icon: <Guarantee />
   }
 ];
