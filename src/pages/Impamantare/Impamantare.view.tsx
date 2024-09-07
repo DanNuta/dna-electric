@@ -20,9 +20,7 @@ type Props = {
   dataFilter: dataProductModel[];
 };
 
-export const ImpamantareView: React.FC<PropsWithChildren<Props>> = (
-  props: PropsWithChildren<Props>
-) => {
+export const ImpamantareView: React.FC<PropsWithChildren<Props>> = (props) => {
   return (
     <Container maxWidth="xl">
       {props.isPending ? (
@@ -42,21 +40,12 @@ export const ImpamantareView: React.FC<PropsWithChildren<Props>> = (
             {props.filterActiveState && (
               <div className="filter">
                 <h2>Impamantare</h2>
-                {props.data &&
-                  props.filterActive?.map((item) => {
-                    return (
-                      <VFilter
-                        display={
-                          props.dataFilter[0] !== undefined &&
-                          props.dataFilter[0].categoria === item
-                            ? "block"
-                            : "none"
-                        }
-                        item={item}
-                        onClick={() => props.filterItemFn(item)}
-                      />
-                    );
-                  })}
+                {props.data && (
+                  <VFilter
+                    categories={props.filterActive}
+                    onClick={(category) => props.filterItemFn(category)}
+                  />
+                )}
               </div>
             )}
           </Styled.FilterDiv>
@@ -65,21 +54,12 @@ export const ImpamantareView: React.FC<PropsWithChildren<Props>> = (
             <Grid className="filter_item" item lg={3}>
               <Styled.FilterDesktop>
                 <h2>Impamantare</h2>
-                {props.data &&
-                  props.filterActive?.map((item) => {
-                    return (
-                      <VFilter
-                        display={
-                          props.dataFilter[0] !== undefined &&
-                          props.dataFilter[0].categoria === item
-                            ? "block"
-                            : "none"
-                        }
-                        item={item}
-                        onClick={() => props.filterItemFn(item)}
-                      />
-                    );
-                  })}
+                {props.data && (
+                  <VFilter
+                    categories={props.filterActive}
+                    onClick={(category) => props.filterItemFn(category)}
+                  />
+                )}
               </Styled.FilterDesktop>
             </Grid>
 
