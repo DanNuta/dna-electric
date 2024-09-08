@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { theme, rootColor } from "../../../components/styles/Theme";
+import { theme, rootColor } from "../styles/Theme";
 
 export const ProduseSimilareDiv = styled.div`
   background: #f8f8f8;

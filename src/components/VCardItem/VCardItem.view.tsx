@@ -1,12 +1,11 @@
 import React, { PropsWithChildren, useContext } from "react";
 import { Link } from "react-router-dom";
+import { IconButton, Box } from "@mui/material";
 
-import { Shop } from "icons";
+import { Shop, HeartOutline, HeartOutlineHighlighted } from "icons";
 
 import { dataProductModel } from "../../models/dataProduct.model";
 import * as Style from "./VCardItem.model";
-import wishlist from "../../icons/hover_icon/wish_list.svg";
-import wishlistHover from "../../icons/card_product_icon/wishlistHover.svg";
 import { WishlistContext } from "../../context/Context.wishlist";
 import { Wishlist } from "../../models/WislistContext.model";
 
@@ -18,8 +17,14 @@ type Props = {
 };
 
 export const VCardItemView: React.FC<PropsWithChildren<Props>> = (props) => {
-  const { wishlistState } = useContext(WishlistContext) as Wishlist;
+  const { wishlistState, shopList, addItemToShopList } = useContext(
+    WishlistContext
+  ) as Wishlist;
   const checkItExist = wishlistState.some(
+    (item: dataProductModel) => item.id === props.data.id
+  );
+
+  const isProductInShopList = shopList.some(
     (item: dataProductModel) => item.id === props.data.id
   );
 
@@ -34,16 +39,17 @@ export const VCardItemView: React.FC<PropsWithChildren<Props>> = (props) => {
       <div className="title_shop">
         <h1 className="title">{props.data.title.substring(0, 55)}</h1>
 
-        <div className="action_btn">
-          <span>
-            <a href="https://www.paratrasnet.shop" target="_blank">
-              <Shop />
-            </a>
-          </span>
-          <span onClick={() => props.onClick?.(props.data)}>
-            <img src={checkItExist ? wishlist : wishlistHover} alt="wishlist" />
-          </span>
-        </div>
+        <Box display="flex" gap="8px">
+          <IconButton
+            color={isProductInShopList ? "primary" : "secondary"}
+            onClick={() => addItemToShopList(props.data)}>
+            <Shop />
+          </IconButton>
+
+          <IconButton onClick={() => props.onClick?.(props.data)}>
+            {checkItExist ? <HeartOutlineHighlighted /> : <HeartOutline />}
+          </IconButton>
+        </Box>
       </div>
     </Style.VCardItemDiv>
   );

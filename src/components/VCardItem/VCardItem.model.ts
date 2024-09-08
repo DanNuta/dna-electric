@@ -45,19 +45,5 @@ export const VCardItemDiv = styled.div`
         line-height: 25px;
       }
     }
-
-    .action_btn {
-      display: flex;
-      align-items: flex-end;
-      gap: 10px;
-      height: 100%;
-
-      span {
-        cursor: pointer;
-        img {
-          width: 15px;
-        }
-      }
-    }
   }
 `;

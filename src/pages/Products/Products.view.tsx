@@ -4,6 +4,7 @@ import { Container, Grid, Button, Box } from "@mui/material";
 
 import { Shop, Wishlist as WishlistIcon } from "icons";
 import { useWishlistContext } from "hooks";
+import { VSimilarProductsView } from "components";
 
 import * as Style from "./Products.model";
 import { VPromotionSection } from "./components";
@@ -11,7 +12,6 @@ import { VPromotionSection } from "./components";
 import { dataProductModel } from "../../models/dataProduct.model";
 import { NavbarContext } from "../../context/Context.navbar";
 import { useLocation } from "react-router-dom";
-import { ProduseSimilare } from "../Products/produseSimilare/ProduseSimilare.view";
 import { LinkCOmponent } from "../../components/VLink/VLink";
 import { VLoaderView } from "../../components/VLoader/VLoader";
 
@@ -123,7 +123,7 @@ export const ProductsView: React.FC<PropsWithChildren<Props>> = (
         <h1 className="title">PRODUSE SIMILARE</h1>
 
         <Grid container spacing={2}>
-          <ProduseSimilare link={props.link} data={props.products} />
+          <VSimilarProductsView link={props.link} data={props.products} />
         </Grid>
       </Style.ProduseSimilareDiv>
 

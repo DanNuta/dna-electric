@@ -1,19 +1,20 @@
 import React, { useContext } from "react";
 import { Grid } from "@mui/material";
-import { WishlistContext } from "../../../context/Context.wishlist";
-import { Wishlist } from "../../../models/WislistContext.model";
-import { dataProductModel } from "../../../models/dataProduct.model";
-import * as Style from "./ProduseSimilare.module";
+
+import { HeartBold, HeartOutlineHighlighted } from "icons";
+
+import { WishlistContext } from "../../context/Context.wishlist";
+import { Wishlist } from "../../models/WislistContext.model";
+import { dataProductModel } from "../../models/dataProduct.model";
+import * as Style from "./VSimilarProducts.module";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import hoverWishlist from "../../../icons/hover_icon/wishlist-hover.svg";
-import wishlist from "../../../icons/hover_icon/wish_list.svg";
 
 type Props = {
   data?: dataProductModel[];
   link?: string;
 };
 
-export const ProduseSimilare: React.FC<Props> = (props: Props) => {
+export const VSimilarProductsView: React.FC<Props> = (props: Props) => {
   const location = useLocation();
   const path = (location.pathname = "");
 
@@ -41,12 +42,12 @@ export const ProduseSimilare: React.FC<Props> = (props: Props) => {
                 </Link>
 
                 <div onClick={() => addWishList(item)} className="hoverElement">
-                  <img
-                    src={
-                      wishlistState.includes(item) ? hoverWishlist : wishlist
-                    }
-                    alt="wihlist"
-                  />
+                  {wishlistState.includes(item) ? (
+                    <HeartBold />
+                  ) : (
+                    <HeartOutlineHighlighted />
+                  )}
+
                   <h2>In preferinte</h2>
                 </div>
               </Style.ProduseSimilareDiv>

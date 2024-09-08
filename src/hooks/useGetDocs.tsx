@@ -26,7 +26,8 @@ export function getDocsFirestore(idDB: string) {
             title: item.data().title,
             categoria: item.data().categoria,
             description: item.data().description,
-            img: item.data().img
+            img: item.data().img,
+            price: Number(item.data().price)
           });
         });
 

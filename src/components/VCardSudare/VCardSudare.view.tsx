@@ -1,14 +1,14 @@
 import React, { PropsWithChildren, useContext } from "react";
 
+import { HeartBold, HeartOutline } from "icons";
+
 import * as Style from "./VCardSudare.model";
 
 import { dataProductModel } from "../../models/dataProduct.model";
-import wishlist from "../../icons/hover_icon/wish_list.svg";
 import search from "../../icons/hover_icon/search.svg";
 import { Link } from "react-router-dom";
 import { WishlistContext } from "../../context/Context.wishlist";
 import { Wishlist } from "../../models/WislistContext.model";
-import hoverWishlist from "../../icons/hover_icon/wishlist-hover.svg";
 
 type Props = {
   data: dataProductModel[];
@@ -39,12 +39,11 @@ export const VCardSudareView: React.FC<PropsWithChildren<Props>> = (
                   </Link>
 
                   <Style.Icon onClick={() => addWishList(item)}>
-                    <img
-                      src={
-                        wishlistState.includes(item) ? hoverWishlist : wishlist
-                      }
-                      alt="wishlist"
-                    />
+                    {wishlistState.includes(item) ? (
+                      <HeartBold />
+                    ) : (
+                      <HeartOutline />
+                    )}
                   </Style.Icon>
                 </Style.IconElement>
               </div>
