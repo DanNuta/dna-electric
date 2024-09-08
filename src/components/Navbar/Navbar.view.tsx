@@ -109,9 +109,9 @@ export const NavbarView: React.FC<PropsWithChildren<Props>> = (
                 <img src={wishlist} alt="wish_list" />
               </li>
               <li>
-                <a href="https://www.paratrasnet.shop" target="_blank">
+                <Link to="/shop">
                   <img src={wishList} alt="wishlist" />
-                </a>
+                </Link>
               </li>
             </Styled.TabletUl>
           </Styled.MaxWidthTablet>

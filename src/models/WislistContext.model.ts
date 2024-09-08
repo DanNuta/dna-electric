@@ -3,7 +3,7 @@ import { dataProductModel } from "./dataProduct.model";
 
 export type Wishlist = {
   wishlistState: dataProductModel[];
-  shipList: ShopList[];
+  shopList: ShopList[];
   addWishList: (id: dataProductModel) => void;
   deleteItem: (id: string) => void;
   deleteAll: () => void;

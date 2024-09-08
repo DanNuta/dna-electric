@@ -24,8 +24,7 @@ export const Navbar: React.FC<PropsWithChildren<Props>> = (props) => {
       toggleState={toggleState}
       toggle={checkToggleFn}
       onClick={wishlist}
-      wishlist={wishlistToggle}
-    >
+      wishlist={wishlistToggle}>
       {props.children}
     </NavbarView>
   );

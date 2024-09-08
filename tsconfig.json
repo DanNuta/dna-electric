@@ -22,7 +22,10 @@
       "models": ["./src/models"],
       "components": ["./src/components"],
       "icons": ["./src/icons"],
-      "firebase-config": ["./src/firebase"]
+      "firebase-config": ["./src/firebase"],
+      "pages": ["./src/pages"],
+      "context": ["./src/context"],
+      "hooks": ["./src/hooks"]
     }
   },
   "include": ["src"],

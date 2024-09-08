@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Shop } from "pages";
+
 import { HomeView } from "./pages/Home/Home.view";
 import { Navbar } from "./components/Navbar/Navbar";
 import { VFooter } from "./components/VFooter/VFooter";
@@ -19,7 +21,7 @@ import { NavbarContextModel } from "./models/NavbarContext.model";
 import { NotFount } from "./pages/NotFound/NotFound.view";
 import { Article } from "./pages/Article/Article.view";
 
-const App = () => {
+const App: React.FC = () => {
   const { data } = useContext(NavbarContext) as NavbarContextModel;
   const { impamantare, supratensiune, paratrasnet } = useContext(
     ProductsProvider
@@ -35,6 +37,7 @@ const App = () => {
 
           <Routes>
             <Route path="/" element={<HomeView />} />
+            <Route path="/shop" element={<Shop />} />
             <Route path="/impamantare" element={<Impamantare />} />
             <Route path="/articole" element={<Article />} />
             <Route

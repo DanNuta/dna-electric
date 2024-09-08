@@ -14,7 +14,10 @@ export default defineConfig({
       models: path.resolve(__dirname, "./src/models"),
       components: path.resolve(__dirname, "./src/components"),
       "firebase-config": path.resolve(__dirname, "./src/firebase"),
-      icons: path.resolve(__dirname, "./src/icons")
+      icons: path.resolve(__dirname, "./src/icons"),
+      pages: path.resolve(__dirname, "./src/pages"),
+      context: path.resolve(__dirname, "./src/context"),
+      hooks: path.resolve(__dirname, "./src/hooks")
     }
   },
 

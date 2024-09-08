@@ -7,9 +7,9 @@ import { Wishlist } from "../models/WislistContext.model";
 
 export const WishlistContext = createContext<Wishlist | null>(null);
 
-export const WislistContext: React.FC<PropsWithChildren> = (props) => {
+export const WishlistContextProvider: React.FC<PropsWithChildren> = (props) => {
   const [wishlistState, setWishListState] = useState<dataProductModel[]>([]);
-  const [shipList, setShopList] = useState<ShopList[]>([]);
+  const [shopList, setShopList] = useState<ShopList[]>([]);
 
   const addWishList = (item: dataProductModel) => {
     const wishListChecl = wishlistState.some(
@@ -39,7 +39,7 @@ export const WislistContext: React.FC<PropsWithChildren> = (props) => {
   };
 
   const addItemToShipList = (item: dataProductModel) => {
-    const addQuantity = new Set(shipList);
+    const addQuantity = new Set(shopList);
     const shopItemQuantity: ShopList = { ...item, quantity: 1 };
 
     setShopList((prev) =>
@@ -60,7 +60,7 @@ export const WislistContext: React.FC<PropsWithChildren> = (props) => {
   return (
     <WishlistContext.Provider
       value={{
-        shipList,
+        shopList,
         wishlistState,
         deleteItemToShopList,
         addItemToShipList,
