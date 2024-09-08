@@ -6,6 +6,7 @@ import { Cancel } from "icons";
 import { useWishlistContext } from "hooks";
 
 import { ShopProductCell } from "./ShopProductCell";
+import { IncreaseQuantity } from "./IncreaseQuantity";
 
 export const ShopRow: React.FC<ShopList> = ({
   description,
@@ -13,9 +14,21 @@ export const ShopRow: React.FC<ShopList> = ({
   img,
   quantity,
   title,
-  total
+  total,
+  price
 }) => {
-  const { deleteItemToShopList } = useWishlistContext();
+  const { deleteItemToShopList, incrementShopQuantity, decrementShopQuantity } =
+    useWishlistContext();
+
+  const modifyQuantity = (type: "increment" | "decrement") => {
+    if (type === "increment") {
+      incrementShopQuantity(id);
+    }
+
+    if (type === "decrement") {
+      decrementShopQuantity(id);
+    }
+  };
 
   return (
     <TableRow>
@@ -33,25 +46,23 @@ export const ShopRow: React.FC<ShopList> = ({
             color: theme.palette.secondary.light
           })}
           variant="h6">
-          750 lei
+          {price} lei
         </Typography>
       </TableCell>
       <TableCell>
+        <IncreaseQuantity
+          onChangeQuantity={modifyQuantity}
+          quantity={quantity}
+        />
+      </TableCell>
+      <TableCell>
         <Typography
+          noWrap
           sx={(theme) => ({
             color: theme.palette.secondary.light
           })}
           variant="h6">
-          {quantity}
-        </Typography>
-      </TableCell>
-      <TableCell>
-        <Typography
-          sx={(theme) => ({
-            color: theme.palette.secondary.light
-          })}
-          variant="h6">
-          {total}
+          {total} lei
         </Typography>
       </TableCell>
       <TableCell align="center">

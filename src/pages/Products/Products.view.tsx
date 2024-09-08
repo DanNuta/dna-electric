@@ -30,7 +30,7 @@ type Props = {
 export const ProductsView: React.FC<PropsWithChildren<Props>> = (
   props: PropsWithChildren<Props>
 ) => {
-  const { wishlistState, addItemToShipList } = useWishlistContext();
+  const { wishlistState, addItemToShopList, shopList } = useWishlistContext();
   const contextNavbar = useContext(NavbarContext);
 
   const location = useLocation();
@@ -38,6 +38,10 @@ export const ProductsView: React.FC<PropsWithChildren<Props>> = (
   const path = (location.pathname = "");
 
   const checkItExist = wishlistState.some(
+    (item: dataProductModel) => item.id === props.data?.id
+  );
+
+  const isProductInShopList = shopList.some(
     (item: dataProductModel) => item.id === props.data?.id
   );
 
@@ -87,18 +91,23 @@ export const ProductsView: React.FC<PropsWithChildren<Props>> = (
 
               <Box mt="20px" display="flex" gap="20px">
                 <Button
-                  onClick={() => addItemToShipList(props.data)}
+                  onClick={() => addItemToShopList(props.data)}
                   sx={(theme) => ({
                     "&:hover": {
                       color: theme.palette.primary.main
                     }
                   })}
-                  color="secondary"
+                  color={isProductInShopList ? "primary" : "secondary"}
                   startIcon={<Shop />}>
                   Adauga in cos
                 </Button>
 
                 <Button
+                  sx={(theme) => ({
+                    "&:hover": {
+                      color: theme.palette.primary.main
+                    }
+                  })}
                   startIcon={<WishlistIcon />}
                   color={checkItExist ? "primary" : "secondary"}
                   onClick={() => props.wishlist(props.data)}>

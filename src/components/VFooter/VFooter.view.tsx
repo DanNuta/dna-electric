@@ -1,5 +1,7 @@
 import React, { PropsWithChildren } from "react";
 
+import { ArrowUp } from "icons";
+
 import { NavbarType } from "../../models/navbar.model";
 import * as Style from "./VFooter.model";
 import Logo from "../../icons/logo/logo.svg";
@@ -8,7 +10,6 @@ import adress from "../../icons/contact_icon/location.svg";
 import mail from "../../icons/contact_icon/email.svg";
 import facebook from "../../icons/social_media_icon/facebook.svg";
 import youtube from "../../icons/social_media_icon/youtube.svg";
-import arrow_up from "../../icons/arrow_icon/arrow_up.svg";
 import { Link } from "react-router-dom";
 
 type Props = {
@@ -98,7 +99,7 @@ export const VFooterView: React.FC<PropsWithChildren<Props>> = (
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
             className="arrow_up">
-            <img src={arrow_up} alt="" />
+            <ArrowUp />
           </div>
         </Style.ContainerStyle>
 

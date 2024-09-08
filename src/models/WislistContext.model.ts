@@ -7,6 +7,8 @@ export type Wishlist = {
   addWishList: (id: dataProductModel) => void;
   deleteItem: (id: string) => void;
   deleteAll: () => void;
-  addItemToShipList: (item: dataProductModel) => void;
+  addItemToShopList: (item: dataProductModel) => void;
   deleteItemToShopList: (id: string) => void;
+  decrementShopQuantity: (id: string) => void;
+  incrementShopQuantity: (id: string) => void;
 };

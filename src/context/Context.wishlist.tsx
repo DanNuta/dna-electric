@@ -38,7 +38,7 @@ export const WishlistContextProvider: React.FC<PropsWithChildren> = (props) => {
     setWishListState([]);
   };
 
-  const addItemToShipList = (item: dataProductModel) => {
+  const addItemToShopList = (item: dataProductModel) => {
     setShopList((prev) => {
       return prev.some((s) => s.id === item.id)
         ? prev.map((shopItem) => {
@@ -54,6 +54,37 @@ export const WishlistContextProvider: React.FC<PropsWithChildren> = (props) => {
     });
   };
 
+  const decrementShopQuantity = (id: string) => {
+    setShopList((prev) =>
+      prev.map((item) => {
+        if (item.quantity !== 1) {
+          return item.id === id
+            ? {
+                ...item,
+                quantity: item.quantity - 1,
+                total: item.total - item.price
+              }
+            : item;
+        }
+        return item;
+      })
+    );
+  };
+
+  const incrementShopQuantity = (id: string) => {
+    setShopList((prev) =>
+      prev.map((item) => {
+        return item.id === id
+          ? {
+              ...item,
+              quantity: item.quantity + 1,
+              total: item.total + item.price
+            }
+          : item;
+      })
+    );
+  };
+
   const deleteItemToShopList = (id: string) => {
     setShopList((prev) => prev.filter((shipItem) => shipItem.id !== id));
   };
@@ -63,8 +94,10 @@ export const WishlistContextProvider: React.FC<PropsWithChildren> = (props) => {
       value={{
         shopList,
         wishlistState,
+        incrementShopQuantity,
+        decrementShopQuantity,
         deleteItemToShopList,
-        addItemToShipList,
+        addItemToShopList,
         addWishList,
         deleteItem,
         deleteAll
