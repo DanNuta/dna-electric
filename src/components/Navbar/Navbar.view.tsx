@@ -83,9 +83,7 @@ export const NavbarView: React.FC<PropsWithChildren<Props>> = (
               <li>
                 <Link to={data.supratensiune}>{data.supratensiune}</Link>
               </li>
-              <li>
-                <Link to={data.articole}>{data.articole}</Link>
-              </li>
+
               <li>
                 <Link to={data.contacte}>{data.contacte}</Link>
               </li>

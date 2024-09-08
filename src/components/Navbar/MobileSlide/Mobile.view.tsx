@@ -41,9 +41,6 @@ export const MobileResponsiveView: React.FC<PropsWithChildren<Props>> = (
           <Link to={data.supratensiune}>{data.supratensiune}</Link>
         </Style.MobileLiElement>
         <Style.MobileLiElement onClick={props.toggle}>
-          <Link to={data.articole}>{data.articole}</Link>
-        </Style.MobileLiElement>
-        <Style.MobileLiElement onClick={props.toggle}>
           <Link to={data.contacte}>{data.contacte}</Link>
         </Style.MobileLiElement>
       </Style.MolobleUl>

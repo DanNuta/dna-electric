@@ -8,7 +8,6 @@ export type NavbarType = {
   impamantare: string;
   paratrasnet: string;
   supratensiune: string;
-  articole: string;
   contacte: string;
   email: string;
   adresa: string;

@@ -19,7 +19,6 @@ import { Paratrasnet } from "./pages/Paratrasnet/Paratrasnet";
 import { ScrollToTop } from "./components/VScroll/VScroll";
 import { NavbarContextModel } from "./models/NavbarContext.model";
 import { NotFount } from "./pages/NotFound/NotFound.view";
-import { Article } from "./pages/Article/Article.view";
 
 const App: React.FC = () => {
   const { data } = useContext(NavbarContext) as NavbarContextModel;
@@ -39,7 +38,7 @@ const App: React.FC = () => {
             <Route path="/" element={<HomeView />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/impamantare" element={<Impamantare />} />
-            <Route path="/articole" element={<Article />} />
+
             <Route
               path="/supratensiune"
               element={<Supratensiuni products={supratensiune} />}
