@@ -1,2 +1,3 @@
 export * from "./CustomPaper";
-export * from "./ShopCard";
+export * from "./ShopRow";
+export * from "./ShopProductCell";

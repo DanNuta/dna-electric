@@ -32,7 +32,8 @@ export const Products: React.FC<PropsWithChildren<Props>> = (
     description: [],
     id: "",
     img: [],
-    title: ""
+    title: "",
+    price: 0
   });
 
   const [isPendingState, setIsPendingState] = useState<boolean | null>(null);
@@ -49,7 +50,8 @@ export const Products: React.FC<PropsWithChildren<Props>> = (
         description: document.data()?.description,
         id: document.id,
         img: document.data()?.img,
-        title: document.data()?.title
+        title: document.data()?.title,
+        price: Number(document.data()?.price)
       });
       setIsPendingState(false);
     });

@@ -3,13 +3,12 @@ import React, { PropsWithChildren, useContext } from "react";
 import { Container, Grid, Button, Box } from "@mui/material";
 
 import { Shop, Wishlist as WishlistIcon } from "icons";
+import { useWishlistContext } from "hooks";
 
 import * as Style from "./Products.model";
 import { VPromotionSection } from "./components";
 
-import { WishlistContext } from "../../context/Context.wishlist";
 import { dataProductModel } from "../../models/dataProduct.model";
-import { Wishlist } from "../../models/WislistContext.model";
 import { NavbarContext } from "../../context/Context.navbar";
 import { useLocation } from "react-router-dom";
 import { ProduseSimilare } from "../Products/produseSimilare/ProduseSimilare.view";
@@ -31,7 +30,7 @@ type Props = {
 export const ProductsView: React.FC<PropsWithChildren<Props>> = (
   props: PropsWithChildren<Props>
 ) => {
-  const { wishlistState } = useContext(WishlistContext) as Wishlist;
+  const { wishlistState, addItemToShipList } = useWishlistContext();
   const contextNavbar = useContext(NavbarContext);
 
   const location = useLocation();
@@ -88,6 +87,7 @@ export const ProductsView: React.FC<PropsWithChildren<Props>> = (
 
               <Box mt="20px" display="flex" gap="20px">
                 <Button
+                  onClick={() => addItemToShipList(props.data)}
                   sx={(theme) => ({
                     "&:hover": {
                       color: theme.palette.primary.main

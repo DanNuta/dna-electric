@@ -12,13 +12,14 @@ import {
 
 import { ShopList } from "models";
 
-import { CustomPaper, ShopCard } from "./components";
+import { CustomPaper, ShopRow } from "./components";
 
 type Props = {
   shopList: ShopList[];
+  total: number;
 };
 
-export const ShopView: React.FC<Props> = ({ shopList }) => {
+export const ShopView: React.FC<Props> = ({ shopList, total }) => {
   return (
     <Container maxWidth="xl">
       <Typography fontWeight="800" variant="h3">
@@ -73,8 +74,8 @@ export const ShopView: React.FC<Props> = ({ shopList }) => {
         </TableHead>
 
         <TableBody>
-          {shopList.map(() => (
-            <ShopCard />
+          {shopList.map((shopItem) => (
+            <ShopRow {...shopItem} />
           ))}
 
           <TableRow>
@@ -91,7 +92,7 @@ export const ShopView: React.FC<Props> = ({ shopList }) => {
                 fontSize={20}
                 fontWeight={700}
                 variant="body1">
-                1200 lei
+                {total} lei
               </Typography>
             </TableCell>
           </TableRow>

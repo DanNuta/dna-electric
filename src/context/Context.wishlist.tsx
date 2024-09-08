@@ -39,22 +39,23 @@ export const WishlistContextProvider: React.FC<PropsWithChildren> = (props) => {
   };
 
   const addItemToShipList = (item: dataProductModel) => {
-    const addQuantity = new Set(shopList);
-    const shopItemQuantity: ShopList = { ...item, quantity: 1 };
-
-    setShopList((prev) =>
-      addQuantity.has(shopItemQuantity)
-        ? prev.map((shopItem) =>
-            shopItem.id === item.id
-              ? { ...shopItem, quantity: shopItem.quantity + 1 }
-              : shopItem
-          )
-        : [...prev, { ...item, quantity: 1 }]
-    );
+    setShopList((prev) => {
+      return prev.some((s) => s.id === item.id)
+        ? prev.map((shopItem) => {
+            return shopItem.id === item.id
+              ? {
+                  ...shopItem,
+                  quantity: shopItem.quantity + 1,
+                  total: shopItem.price * (shopItem.quantity + 1)
+                }
+              : shopItem;
+          })
+        : [...prev, { ...item, quantity: 1, total: item.price }];
+    });
   };
 
-  const deleteItemToShopList = (item: dataProductModel) => {
-    setShopList((prev) => prev.filter((shipItem) => shipItem.id !== item.id));
+  const deleteItemToShopList = (id: string) => {
+    setShopList((prev) => prev.filter((shipItem) => shipItem.id !== id));
   };
 
   return (

@@ -6,5 +6,10 @@ import { ShopView } from "./Shop.view";
 
 export const Shop: React.FC = () => {
   const { shopList } = useWishlistContext();
-  return <ShopView shopList={shopList} />;
+
+  const totalPrice = shopList
+    .map((shop) => shop.total)
+    .reduce((a, c) => a + c, 0);
+
+  return <ShopView shopList={shopList} total={totalPrice} />;
 };

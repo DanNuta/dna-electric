@@ -1,9 +1,10 @@
 import React, { PropsWithChildren } from "react";
 import { Link } from "react-router-dom";
 
+import { Cancel } from "icons";
+
 import { dataProductModel } from "../../models/dataProduct.model";
 import * as Style from "./VWishListItem.model";
-import cancel from "../../icons/card_product_icon/cancel.svg";
 
 type Props = {
   data: dataProductModel;
@@ -30,7 +31,7 @@ export const VWishListItemView: React.FC<PropsWithChildren<Props>> = (
       </Link>
 
       <div onClick={() => props.delete(props.data.id)} className="cancel">
-        <img src={cancel} alt="cancel" />
+        <Cancel />
       </div>
     </Style.WishlistItemDiv>
   );

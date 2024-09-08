@@ -4,4 +4,5 @@ export type dataProductModel = {
   id: string;
   img: string[];
   title: string;
+  price: number;
 };
