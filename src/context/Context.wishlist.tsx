@@ -1,5 +1,7 @@
 import React, { useState, createContext, PropsWithChildren } from "react";
 
+import { ShopList } from "models";
+
 import { dataProductModel } from "../models/dataProduct.model";
 import { Wishlist } from "../models/WislistContext.model";
 
@@ -7,6 +9,7 @@ export const WishlistContext = createContext<Wishlist | null>(null);
 
 export const WislistContext: React.FC<PropsWithChildren> = (props) => {
   const [wishlistState, setWishListState] = useState<dataProductModel[]>([]);
+  const [shipList, setShopList] = useState<ShopList[]>([]);
 
   const addWishList = (item: dataProductModel) => {
     const wishListChecl = wishlistState.some(
@@ -35,10 +38,32 @@ export const WislistContext: React.FC<PropsWithChildren> = (props) => {
     setWishListState([]);
   };
 
+  const addItemToShipList = (item: dataProductModel) => {
+    const addQuantity = new Set(shipList);
+    const shopItemQuantity: ShopList = { ...item, quantity: 1 };
+
+    setShopList((prev) =>
+      addQuantity.has(shopItemQuantity)
+        ? prev.map((shopItem) =>
+            shopItem.id === item.id
+              ? { ...shopItem, quantity: shopItem.quantity + 1 }
+              : shopItem
+          )
+        : [...prev, { ...item, quantity: 1 }]
+    );
+  };
+
+  const deleteItemToShopList = (item: dataProductModel) => {
+    setShopList((prev) => prev.filter((shipItem) => shipItem.id !== item.id));
+  };
+
   return (
     <WishlistContext.Provider
       value={{
+        shipList,
         wishlistState,
+        deleteItemToShopList,
+        addItemToShipList,
         addWishList,
         deleteItem,
         deleteAll
