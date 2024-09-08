@@ -42,6 +42,7 @@ export const ShopView: React.FC<Props> = ({ shopList, total }) => {
               </TableCell>
               <TableCell>
                 <Typography
+                  noWrap
                   sx={(theme) => ({
                     color: theme.palette.secondary.light
                   })}

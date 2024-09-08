@@ -1,6 +1,6 @@
 import React, { PropsWithChildren, useContext } from "react";
 
-import { HeartBold, HeartOutline } from "icons";
+import { HeartOutlineHighlighted, HeartBold } from "icons";
 
 import * as Style from "./VCardSudare.model";
 
@@ -42,7 +42,7 @@ export const VCardSudareView: React.FC<PropsWithChildren<Props>> = (
                     {wishlistState.includes(item) ? (
                       <HeartBold />
                     ) : (
-                      <HeartOutline />
+                      <HeartOutlineHighlighted />
                     )}
                   </Style.Icon>
                 </Style.IconElement>
