@@ -57,11 +57,9 @@ export default tseslint.config(
       "no-unused-vars": [
         "error",
         {
-          vars: "all",
           args: "after-used",
-          caughtErrors: "all",
-          ignoreRestSiblings: false,
-          reportUsedIgnorePattern: false
+          argsIgnorePattern: "^_",
+          ignoreRestSiblings: true
         }
       ],
       ...prettierPlugin.configs.recommended.rules,
