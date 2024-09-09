@@ -1,7 +1,7 @@
-import { useProductsModel } from "./products.model";
+import { ProductsResponse } from "./products.model";
 
 export type ProduseContextModel = {
-  impamantare: useProductsModel;
-  supratensiune: useProductsModel;
-  paratrasnet: useProductsModel;
+  impamantare: ProductsResponse;
+  supratensiune: ProductsResponse;
+  paratrasnet: ProductsResponse;
 };

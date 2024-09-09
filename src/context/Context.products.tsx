@@ -1,16 +1,40 @@
 import React, { createContext, PropsWithChildren } from "react";
+import { QueryDocumentSnapshot, DocumentData } from "firebase/firestore";
 
 import { useGetDocs } from "hooks";
 import { DOCS_FIRESTORE_IDS } from "app-constants";
 
 import { ProduseContextModel } from "../models/produseContext.model";
+import { dataProductModel } from "../models/dataProduct.model";
 
 export const ProductsProvider = createContext<ProduseContextModel | null>(null);
 
+const getDocFields = (doc: QueryDocumentSnapshot<DocumentData>) => {
+  const docs = doc.data() as Omit<dataProductModel, "id">;
+
+  return {
+    id: doc.id,
+    title: docs.title,
+    categoria: docs.categoria,
+    description: docs.description,
+    img: docs.img,
+    price: Number(docs.price)
+  };
+};
+
 export const ProductsContext: React.FC<PropsWithChildren> = ({ children }) => {
-  const impamantare = useGetDocs(DOCS_FIRESTORE_IDS.EARTH);
-  const supratensiune = useGetDocs(DOCS_FIRESTORE_IDS.OVERVOLTAGES);
-  const paratrasnet = useGetDocs(DOCS_FIRESTORE_IDS.LIGHTNING_ROD);
+  const impamantare = useGetDocs<dataProductModel>(
+    DOCS_FIRESTORE_IDS.EARTH,
+    getDocFields
+  );
+  const supratensiune = useGetDocs(
+    DOCS_FIRESTORE_IDS.OVERVOLTAGES,
+    getDocFields
+  );
+  const paratrasnet = useGetDocs(
+    DOCS_FIRESTORE_IDS.LIGHTNING_ROD,
+    getDocFields
+  );
 
   return (
     <ProductsProvider.Provider

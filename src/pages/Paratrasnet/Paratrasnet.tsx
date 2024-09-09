@@ -1,12 +1,14 @@
 import React, { PropsWithChildren, useState, useContext } from "react";
+
+import { ProductsResponse } from "models";
+
 import { ParatrasnetView } from "./Paratrasnet.view";
 import { dataProductModel } from "../../models/dataProduct.model";
 import { WishlistContext } from "../../context/Context.wishlist";
 import { Wishlist } from "../../models/WislistContext.model";
-import { useProductsModel } from "../../models/products.model";
 
 type Props = {
-  products: useProductsModel;
+  products: ProductsResponse;
 };
 
 export const Paratrasnet: React.FC<PropsWithChildren<Props>> = (
