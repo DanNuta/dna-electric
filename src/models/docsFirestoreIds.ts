@@ -1,0 +1,4 @@
+export type DOCS_FIRESTORE_IDS =
+  | "IMPAMANTARE"
+  | "SUPRATENSIUNI"
+  | "PARATRASNET";

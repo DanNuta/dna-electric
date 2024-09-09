@@ -1,26 +1,27 @@
 import { useState, useEffect } from "react";
 import { collection, FirestoreError, onSnapshot } from "firebase/firestore";
 
-import { db } from "../firebase/config";
+import { db } from "firebase-config";
+import { DOCS_FIRESTORE_IDS } from "models";
 
 import { dataProductModel } from "../models/dataProduct.model";
 
-export function getDocsFirestore(idDB: string) {
+export function useGetDocs(id: DOCS_FIRESTORE_IDS) {
   const [pending, setPending] = useState<boolean | null>(null);
   const [error, setError] = useState<FirestoreError | null>(null);
   const [data, setData] = useState<dataProductModel[]>([]);
 
   useEffect(() => {
-    const ref = collection(db, idDB);
+    const ref = collection(db, id);
 
     setPending(true);
 
     const onSubscribe = onSnapshot(
       ref,
-      (snapshopt) => {
+      (snapshot) => {
         const dataSnapshot: dataProductModel[] = [];
 
-        snapshopt.docs.forEach((item) => {
+        snapshot.docs.forEach((item) => {
           dataSnapshot.push({
             id: item.id,
             title: item.data().title,
@@ -43,7 +44,7 @@ export function getDocsFirestore(idDB: string) {
     return () => {
       onSubscribe();
     };
-  }, [idDB]);
+  }, [id]);
 
   return { data, error, pending };
 }
