@@ -1,40 +1,27 @@
-import React, {
-  PropsWithChildren,
-  useState,
-  useEffect,
-  useContext
-} from "react";
+import React, { PropsWithChildren, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getDoc, doc } from "firebase/firestore";
 
+import { useWishlistContext } from "hooks";
+import { DOCS_FIRESTORE_IDS } from "models";
+
 import { ProductsView } from "./Products.view";
 import { db } from "../../firebase/config";
-import { WishlistContext } from "../../context/Context.wishlist";
 import { dataProductModel } from "../../models/dataProduct.model";
-import { Wishlist } from "../../models/WislistContext.model";
 
 type Props = {
-  collection?: string;
-  localStorege?: string;
-  products?: dataProductModel[];
-  link?: string;
+  collection: DOCS_FIRESTORE_IDS;
+  products: dataProductModel[];
+  link: string;
 };
 
 export const Products: React.FC<PropsWithChildren<Props>> = (
   props: PropsWithChildren<Props>
 ) => {
   const { id } = useParams();
+  const { addWishList } = useWishlistContext();
 
-  const { addWishList } = useContext(WishlistContext) as Wishlist;
-
-  const [dateState, setDataState] = useState<dataProductModel>({
-    categoria: "",
-    description: [],
-    id: "",
-    img: [],
-    title: "",
-    price: 0
-  });
+  const [dateState, setDataState] = useState<dataProductModel>();
 
   const [isPendingState, setIsPendingState] = useState<boolean | null>(null);
   const [contorState, setContorState] = useState(0);
@@ -42,20 +29,26 @@ export const Products: React.FC<PropsWithChildren<Props>> = (
   useEffect(() => {
     setIsPendingState(true);
 
-    const ref = doc(db, `${props.collection}`, `${id}`);
+    if (!id) return;
 
-    getDoc(ref).then((document) => {
+    const ref = doc(db, props.collection, id);
+
+    const getDocData = async () => {
+      const docData = await getDoc(ref);
+      const actualDataDoc = docData.data() as dataProductModel;
       setDataState({
-        categoria: document.data()?.categoria,
-        description: document.data()?.description,
-        id: document.id,
-        img: document.data()?.img,
-        title: document.data()?.title,
-        price: Number(document.data()?.price)
+        categoria: actualDataDoc.categoria,
+        description: actualDataDoc.description,
+        id: actualDataDoc.id,
+        img: actualDataDoc.img,
+        title: actualDataDoc.title,
+        price: Number(actualDataDoc.price)
       });
       setIsPendingState(false);
-    });
-  }, [`${id}`]);
+    };
+
+    getDocData();
+  }, [id]);
 
   const nextImg = () => {
     const lengthImg = dateState?.img?.length;

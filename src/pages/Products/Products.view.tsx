@@ -1,10 +1,10 @@
 /* eslint-disable max-lines */
 import React, { PropsWithChildren, useContext } from "react";
-import { Container, Grid, Button, Box } from "@mui/material";
+import { Container, Button, Box } from "@mui/material";
 
 import { Shop, Wishlist as WishlistIcon } from "icons";
 import { useWishlistContext } from "hooks";
-import { VSimilarProductsView } from "components";
+import { VSimilarProductsSection } from "components";
 
 import * as Style from "./Products.model";
 import { VPromotionSection } from "./components";
@@ -16,7 +16,7 @@ import { LinkCOmponent } from "../../components/VLink/VLink";
 import { VLoaderView } from "../../components/VLoader/VLoader";
 
 type Props = {
-  data: dataProductModel;
+  data?: dataProductModel;
   isPending: boolean | null;
   next: () => void;
   prev: () => void;
@@ -91,7 +91,11 @@ export const ProductsView: React.FC<PropsWithChildren<Props>> = (
 
               <Box mt="20px" display="flex" gap="20px">
                 <Button
-                  onClick={() => addItemToShopList(props.data)}
+                  onClick={() => {
+                    if (props.data) {
+                      addItemToShopList(props.data);
+                    }
+                  }}
                   sx={(theme) => ({
                     "&:hover": {
                       color: theme.palette.primary.main
@@ -110,7 +114,11 @@ export const ProductsView: React.FC<PropsWithChildren<Props>> = (
                   })}
                   startIcon={<WishlistIcon />}
                   color={checkItExist ? "primary" : "secondary"}
-                  onClick={() => props.wishlist(props.data)}>
+                  onClick={() => {
+                    if (props.data) {
+                      props.wishlist(props.data);
+                    }
+                  }}>
                   Adauga in la favorite
                 </Button>
               </Box>
@@ -119,13 +127,7 @@ export const ProductsView: React.FC<PropsWithChildren<Props>> = (
         </Style.ItemProductsDiv>
       )}
 
-      <Style.ProduseSimilareDiv>
-        <h1 className="title">PRODUSE SIMILARE</h1>
-
-        <Grid container spacing={2}>
-          <VSimilarProductsView link={props.link} data={props.products} />
-        </Grid>
-      </Style.ProduseSimilareDiv>
+      <VSimilarProductsSection link={props.link} products={props.products} />
 
       <VPromotionSection />
     </Container>
