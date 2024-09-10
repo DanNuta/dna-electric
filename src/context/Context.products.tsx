@@ -3,11 +3,11 @@ import { QueryDocumentSnapshot, DocumentData } from "firebase/firestore";
 
 import { useGetDocs } from "hooks";
 import { DOCS_FIRESTORE_IDS } from "app-constants";
+import { ProductsContext as ProductsContextModal } from "models";
 
-import { ProduseContextModel } from "../models/produseContext.model";
 import { dataProductModel } from "../models/dataProduct.model";
 
-export const ProductsProvider = createContext<ProduseContextModel | null>(null);
+export const ProductsContext = createContext<ProductsContextModal | null>(null);
 
 const getDocFields = (doc: QueryDocumentSnapshot<DocumentData>) => {
   const docs = doc.data() as Omit<dataProductModel, "id">;
@@ -22,7 +22,7 @@ const getDocFields = (doc: QueryDocumentSnapshot<DocumentData>) => {
   };
 };
 
-export const ProductsContext: React.FC<PropsWithChildren> = ({ children }) => {
+export const ProductsProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const impamantare = useGetDocs<dataProductModel>(
     DOCS_FIRESTORE_IDS.EARTH,
     getDocFields
@@ -37,9 +37,9 @@ export const ProductsContext: React.FC<PropsWithChildren> = ({ children }) => {
   );
 
   return (
-    <ProductsProvider.Provider
+    <ProductsContext.Provider
       value={{ impamantare, supratensiune, paratrasnet }}>
       {children}
-    </ProductsProvider.Provider>
+    </ProductsContext.Provider>
   );
 };

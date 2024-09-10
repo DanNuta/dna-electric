@@ -1,16 +1,16 @@
 import React, { PropsWithChildren, useState, useContext } from "react";
 
+import { useProductsContext } from "hooks";
+
 import { ImpamantareView } from "./Impamantare.view";
 
 import { dataProductModel } from "../../models/dataProduct.model";
 import { WishlistContext } from "../../context/Context.wishlist";
 import { Wishlist } from "../../models/WislistContext.model";
-import { ProduseContextModel } from "../../models/produseContext.model";
-import { ProductsProvider } from "../../context/Context.products";
 
 export const Impamantare: React.FC<PropsWithChildren> = (props) => {
   const { addWishList } = useContext(WishlistContext) as Wishlist;
-  const { impamantare } = useContext(ProductsProvider) as ProduseContextModel;
+  const { impamantare } = useProductsContext();
 
   const [filterActiveState, setFilterActiveState] = useState<boolean>(false);
   const [dataFilterState, setDataFilter] = useState<dataProductModel[]>([]);

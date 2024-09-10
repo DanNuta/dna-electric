@@ -1,9 +1,8 @@
-import React, { PropsWithChildren, useContext } from "react";
+import React, { PropsWithChildren } from "react";
+
+import { useProductsContext } from "hooks";
 
 import { VCardSudareView } from "./VCardSudare.view";
-
-import { ProductsProvider } from "../../context/Context.products";
-import { ProduseContextModel } from "../../models/produseContext.model";
 
 type Props = {
   link?: string;
@@ -12,7 +11,7 @@ type Props = {
 export const VCardSudare: React.FC<PropsWithChildren<Props>> = (
   props: PropsWithChildren<Props>
 ) => {
-  const { impamantare } = useContext(ProductsProvider) as ProduseContextModel;
+  const { impamantare } = useProductsContext();
 
   return (
     <VCardSudareView link={props.link} data={impamantare.data}>

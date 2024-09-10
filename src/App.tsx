@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Shop } from "pages";
+import { useProductsContext } from "hooks";
 
 import { HomeView } from "./pages/Home/Home.view";
 import { Navbar } from "./components/Navbar/Navbar";
@@ -13,8 +14,6 @@ import { useContext } from "react";
 import { NavbarContext } from "./context/Context.navbar";
 import { Products } from "./pages/Products/Products";
 import { Supratensiuni } from "./pages/Supratensiuni/Supratensiuni";
-import { ProductsProvider } from "./context/Context.products";
-import { ProduseContextModel } from "./models/produseContext.model";
 import { Paratrasnet } from "./pages/Paratrasnet/Paratrasnet";
 import { ScrollToTop } from "./components/VScroll/VScroll";
 import { NavbarContextModel } from "./models/NavbarContext.model";
@@ -22,9 +21,7 @@ import { NotFount } from "./pages/NotFound/NotFound.view";
 
 const App: React.FC = () => {
   const { data } = useContext(NavbarContext) as NavbarContextModel;
-  const { impamantare, supratensiune, paratrasnet } = useContext(
-    ProductsProvider
-  ) as ProduseContextModel;
+  const { impamantare, paratrasnet, supratensiune } = useProductsContext();
 
   return (
     <BrowserRouter>
