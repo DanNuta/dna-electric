@@ -28,7 +28,7 @@ export const VWhatWeOfferCardWithModalView: React.FC<
         alignItems="center"
         justifyContent="center"
         boxShadow="4px 1px 10px 0px rgba(0, 0, 0, 0.1)">
-        <Typography textAlign="center" variant="h4">
+        <Typography fontWeight={700} textAlign="center" variant="h4">
           {item.title}
         </Typography>
       </Box>

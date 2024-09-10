@@ -74,7 +74,7 @@ const App: React.FC = () => {
                 />
               }
             />
-            <Route path="/contacte" element={<Contact />} />
+            <Route path="/Contact" element={<Contact />} />
             <Route path="*" element={<NotFount />} />
           </Routes>
 

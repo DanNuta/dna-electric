@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   Container,
   Typography,
@@ -11,6 +10,8 @@ import {
 } from "@mui/material";
 
 import { ShopList } from "models";
+import { useProductsContext, useNavbarContext } from "hooks";
+import { VSimilarProductsSection } from "components";
 
 import { CustomPaper, ShopRow } from "./components";
 
@@ -20,9 +21,12 @@ type Props = {
 };
 
 export const ShopView: React.FC<Props> = ({ shopList, total }) => {
+  const { impamantare } = useProductsContext();
+  const { data } = useNavbarContext();
+
   return (
     <Container sx={{ marginTop: "115px" }} maxWidth="xl">
-      <Typography fontWeight="800" variant="h3">
+      <Typography fontSize={48} fontWeight="800" variant="h3">
         CUMPARATURI
       </Typography>
 
@@ -107,6 +111,11 @@ export const ShopView: React.FC<Props> = ({ shopList, total }) => {
           Momentan nu exista produse
         </Typography>
       )}
+
+      <VSimilarProductsSection
+        link={data.impamantare}
+        products={impamantare.data}
+      />
     </Container>
   );
 };

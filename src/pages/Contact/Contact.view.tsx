@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-unused-vars */
 import React, { PropsWithChildren, useContext, useRef } from "react";
+import { Container } from "@mui/material";
 
 import * as Style from "./Contact.model";
 import { VImput } from "../../components/VInput/VInput";
@@ -31,9 +32,7 @@ export const ContactViwe: React.FC<PropsWithChildren<Props>> = (props) => {
   const { data } = useContext(NavbarContext) as NavbarContextModel;
 
   return (
-    <Style.ContactDiv>
-      {/* (e: React.FormEvent, form: HTMLFormElement) => props.contact(e, form) */}
-
+    <Container sx={{ marginTop: "115px" }} maxWidth="xl">
       <h1>Contact</h1>
       <p>
         Simțiți-vă liber să ne contactați oricând. Vom reveni cu un mesaj cât
@@ -115,6 +114,6 @@ export const ContactViwe: React.FC<PropsWithChildren<Props>> = (props) => {
       <Style.MapDiv>
         <iframe src={data.map} />
       </Style.MapDiv>
-    </Style.ContactDiv>
+    </Container>
   );
 };
